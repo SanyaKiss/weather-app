@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { CurrentWeather } from "./CurrentWeather";
 import { Forecast } from "./Forecast";
 
-interface WeatherData {
+export interface WeatherData {
   id: number;
   main: string;
   description: string;
@@ -40,7 +40,6 @@ export interface WeatherApiResponse {
 export interface ForecastData {
   date: string;
   temperature: number;
-  description: string;
   icon: string;
 }
 
@@ -82,6 +81,7 @@ export const Main = () => {
         console.error(error);
       }
     };
+
     fetchWeatherData();
     fetchForecastData();
   }, [currentCity]);

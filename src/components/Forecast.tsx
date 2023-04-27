@@ -1,29 +1,122 @@
-import React from "react";
-import { ForecastData } from "./Main";
+import React, { FC, useState } from "react";
+import { ForecastData, WeatherData } from "./Main";
 import moment from "moment";
 
-export const Forecast = ({
-  forecastData,
-}: {
+// interface DailyForecast {
+//   [key: string]: {
+//     temperature: number;
+//     count: number;
+//   };
+// }
+
+interface DailyForecast {
+  [key: string]: {
+    minTemperature: number;
+    maxTemperature: number;
+  };
+}
+
+type ForecastProps = {
   forecastData: ForecastData[];
-}) => {
+};
 
-  const fiveDays = forecastData.slice(0, 5)
+export const Forecast: FC<ForecastProps> = ({ forecastData }) => {
+  const [dailyWeather, setDailyWeather] = useState<ForecastData[]>([]);
 
+  const dailyForecast = forecastData.reduce((acc: DailyForecast, curr) => {
+    const date = curr.date.split(", ")[1];
+    const temperature = curr.temperature;
+    if (!acc[date]) {
+      acc[date] = { minTemperature: temperature, maxTemperature: temperature };
+    } else {
+      acc[date].minTemperature = Math.min(
+        acc[date].minTemperature,
+        temperature
+      );
+      acc[date].maxTemperature = Math.max(
+        acc[date].maxTemperature,
+        temperature
+      );
+    }
+    return acc;
+  }, {});
+
+  console.log(dailyForecast);
+
+  const dailyTemperature = Object.keys(dailyForecast).map((date) => {
+    return {
+      date: date,
+      minTemperature: dailyForecast[date].minTemperature,
+      maxTemperature: dailyForecast[date].maxTemperature,
+    };
+  });
+
+  console.log(dailyTemperature);
+
+  // const dailyForecast = forecastData.reduce((acc: DailyForecast, curr) => {
+  //   const date = curr.date.split(", ")[1];
+  //   const temperature = curr.temperature;
+  //   if (!acc[date]) {
+  //     acc[date] = { temperature: temperature, count: 1 };
+  //   } else {
+  //     acc[date].temperature += temperature;
+  //     acc[date].count++;
+  //   }
+  //   return acc;
+  // }, {});
+
+  // const dailyTemperature = Object.keys(dailyForecast).map((date) => {
+  //   return {
+  //     date: date,
+  //     temperature: Math.round(
+  //       dailyForecast[date].temperature / dailyForecast[date].count
+  //     ),
+  //   };
+  // });
+
+  const handleClick = (date: string) => {
+    const filteredForecast = forecastData.filter((item) =>
+      item.date.includes(date)
+    );
+    setDailyWeather(filteredForecast);
+  };
   return (
     <div className="forecast">
-      {fiveDays.map((data, index) => (
-        <div className="forecast-item" key={index}>
-          <div className="icon">
+      <div className="forecast__buttons">
+        {dailyTemperature.slice(0, 6).map((item, index) => (
+          <div
+            className="forecast-item"
+            key={index}
+            onClick={() => handleClick(item.date)}
+          >
+            <div className="icon">
+              <img
+                src={`http://openweathermap.org/img/w/${item}.png`}
+                alt="weather icon"
+              />
+            </div>
+            <div className="date">
+              {moment(`2023 ${item.date}`).format("ddd")}
+            </div>
+            <div className="temperatures">
+              <span className="temperature">{item.minTemperature}&deg;</span> 
+              <span className="temperature">{item.maxTemperature}&deg;</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div>
+        {dailyWeather.map((item) => (
+          <div className="forecast-daily">
+            <div> {moment(item.date).format("h:mm A")}</div>
             <img
-              src={`http://openweathermap.org/img/w/${data.icon}.png`}
+              src={`http://openweathermap.org/img/w/${item.icon}.png`}
               alt="weather icon"
             />
+            <div>{item.temperature}&deg;</div>
           </div>
-          <div className="date">{moment(data.date).format("ddd")}</div>
-          <div className="temperature">{data.temperature}&deg;</div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

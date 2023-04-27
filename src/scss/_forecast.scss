@@ -5,21 +5,32 @@ $pink-color: #f8d3cf;
 $font-color: #619df0;
 $font-weight: 600;
 
-.forecast { 
+.forecast {
+  &__buttons {
     display: flex;
-    gap:15px;
-    &-item{ 
-        box-sizing: border-box;
-        padding: 20px;
-        // background-color: $blue-color;
-        background-color: #ffffff;
-        height: 140px;
-        width: 95px;
-        border-radius: 20px;
+    gap: 15px;
+  }
+  &-item {
+    box-sizing: border-box;
+    padding: 20px;
+    // background-color: $blue-color;
+    background-color: #ffffff;
+    height: 140px;
+    width: 95px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: $font-weight;
+
+    .temperatures{
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        font-weight:$font-weight;
+        gap: 15px;
     }
+  }
+  &-daily {
+    display: flex;
+    gap: 15px;
+  }
 }
