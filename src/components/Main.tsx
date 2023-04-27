@@ -3,12 +3,14 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { CurrentWeather } from "./CurrentWeather";
 import { Forecast } from "./Forecast";
+import i18n from "../18n";
+import { IconType } from "../utils/getWeatherIcon";
 
 export interface WeatherData {
   id: number;
   main: string;
   description: string;
-  icon: string;
+  icon: IconType;
 }
 
 interface MainData {
@@ -40,7 +42,7 @@ export interface WeatherApiResponse {
 export interface ForecastData {
   date: string;
   temperature: number;
-  icon: string;
+  icon: IconType;
 }
 
 export const Main = () => {
@@ -50,6 +52,13 @@ export const Main = () => {
     WeatherApiResponse | undefined
   >(undefined);
   const [forecast, setForecast] = useState<ForecastData[]>([]);
+  const [language, setLanguage] = useState<boolean>(false);
+
+  const handleLanguage = () => {
+    setLanguage((prev) => !prev);
+    language ? i18n.changeLanguage("uk") : i18n.changeLanguage("en");
+  };
+
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -91,6 +100,7 @@ export const Main = () => {
   return (
     <div className="main">
       <h1 className="current-date">{currentDate}</h1>
+      <button onClick={handleLanguage}>{language ? "укр" : "en"}</button>
       {/* <input
         type="text"
         value={currentCity}

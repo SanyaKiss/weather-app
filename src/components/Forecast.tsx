@@ -1,13 +1,9 @@
 import React, { FC, useState } from "react";
 import { ForecastData, WeatherData } from "./Main";
 import moment from "moment";
-
-// interface DailyForecast {
-//   [key: string]: {
-//     temperature: number;
-//     count: number;
-//   };
-// }
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getWeatherIcon } from "../utils/getWeatherIcon";
+import { useTranslation } from "react-i18next";
 
 interface DailyForecast {
   [key: string]: {
@@ -22,6 +18,7 @@ type ForecastProps = {
 
 export const Forecast: FC<ForecastProps> = ({ forecastData }) => {
   const [dailyWeather, setDailyWeather] = useState<ForecastData[]>([]);
+  const { t } = useTranslation();
 
   const dailyForecast = forecastData.reduce((acc: DailyForecast, curr) => {
     const date = curr.date.split(", ")[1];
@@ -41,8 +38,6 @@ export const Forecast: FC<ForecastProps> = ({ forecastData }) => {
     return acc;
   }, {});
 
-  console.log(dailyForecast);
-
   const dailyTemperature = Object.keys(dailyForecast).map((date) => {
     return {
       date: date,
@@ -50,29 +45,6 @@ export const Forecast: FC<ForecastProps> = ({ forecastData }) => {
       maxTemperature: dailyForecast[date].maxTemperature,
     };
   });
-
-  console.log(dailyTemperature);
-
-  // const dailyForecast = forecastData.reduce((acc: DailyForecast, curr) => {
-  //   const date = curr.date.split(", ")[1];
-  //   const temperature = curr.temperature;
-  //   if (!acc[date]) {
-  //     acc[date] = { temperature: temperature, count: 1 };
-  //   } else {
-  //     acc[date].temperature += temperature;
-  //     acc[date].count++;
-  //   }
-  //   return acc;
-  // }, {});
-
-  // const dailyTemperature = Object.keys(dailyForecast).map((date) => {
-  //   return {
-  //     date: date,
-  //     temperature: Math.round(
-  //       dailyForecast[date].temperature / dailyForecast[date].count
-  //     ),
-  //   };
-  // });
 
   const handleClick = (date: string) => {
     const filteredForecast = forecastData.filter((item) =>
@@ -82,10 +54,10 @@ export const Forecast: FC<ForecastProps> = ({ forecastData }) => {
   };
   return (
     <div className="forecast">
-      <div className="forecast__buttons">
+      <div className="forecast-buttons">
         {dailyTemperature.slice(0, 6).map((item, index) => (
           <div
-            className="forecast-item"
+            className="forecast__item"
             key={index}
             onClick={() => handleClick(item.date)}
           >
@@ -99,19 +71,24 @@ export const Forecast: FC<ForecastProps> = ({ forecastData }) => {
               {moment(`2023 ${item.date}`).format("ddd")}
             </div>
             <div className="temperatures">
-              <span className="temperature">{item.minTemperature}&deg;</span> 
+              <span className="temperature">{item.minTemperature}&deg;</span>
               <span className="temperature">{item.maxTemperature}&deg;</span>
             </div>
           </div>
         ))}
       </div>
-      <div>
+      <div className="forecast-daily-block">
         {dailyWeather.map((item) => (
-          <div className="forecast-daily">
+          <div className="forecast__daily">
             <div> {moment(item.date).format("h:mm A")}</div>
-            <img
+            {/* <img
               src={`http://openweathermap.org/img/w/${item.icon}.png`}
               alt="weather icon"
+            /> */}
+            <FontAwesomeIcon
+              color="orange"
+              size="2xl"
+              icon={getWeatherIcon(item.icon)}
             />
             <div>{item.temperature}&deg;</div>
           </div>

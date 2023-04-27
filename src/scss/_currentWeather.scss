@@ -2,9 +2,16 @@
 
 .current-weather {
   display: flex;
-  justify-content: space-between;
+  justify-content:end;
   color: $font-color;
+  margin-top: 10px;
   .main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
     .city-name{
       color:black
     }
@@ -13,6 +20,7 @@
       align-items: center;
       .temperature {
         font-size: 50px;
+        margin-right: 15px;
       }
       img {
         height: 150px;
@@ -68,7 +76,6 @@
   .info-block {
     .info {
       box-sizing: border-box;
-      margin: 5px;
       padding: 15px;
       background-color: $blue-color;
       height: 100px;
