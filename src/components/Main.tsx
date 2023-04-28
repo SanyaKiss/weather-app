@@ -40,6 +40,10 @@ export interface WeatherApiResponse {
   name: string;
 }
 
+export interface ForecastApiResponse {
+  list: WeatherApiResponse[];
+}
+
 export interface ForecastData {
   date: string;
   temperature: number;
@@ -54,8 +58,9 @@ export const Main = () => {
   const [currentWeather, setCurrentWeather] = useState<
     WeatherApiResponse | undefined
   >(undefined);
-
-  const [forecast, setForecast] = useState<ForecastData[]>([]);
+  const [forecast, setForecast] = useState<ForecastApiResponse | undefined>(
+    undefined
+  );
   const [language, setLanguage] = useState<boolean>(false);
 
   const handleLanguage = () => {
@@ -77,18 +82,10 @@ export const Main = () => {
 
     const fetchForecastData = async () => {
       try {
-        const response = await axios.get<{ list: WeatherApiResponse[] }>(
+        const response = await axios.get<ForecastApiResponse>(
           `https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&appid=${API_KEY}&units=metric`
         );
-        const forecastData: ForecastData[] = response.data.list.map((data) => {
-          return {
-            date: moment(data.dt_txt).format("ddd, D MMM, LT"),
-            temperature: Math.round(data.main.temp),
-            description: data.weather[0].description,
-            icon: data.weather[0].icon,
-          };
-        });
-        setForecast(forecastData);
+        setForecast(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -130,8 +127,8 @@ export const Main = () => {
           {language ? "укр" : "en"}
         </button>
       </header>
-      {forecast?.length > 0 && <Forecast forecastData={forecast} />}
-      {currentWeather && <CurrentWeather weatherData={currentWeather} />}
+      {forecast &&  currentWeather && <Forecast forecastData={forecast} weatherData={currentWeather}/>}
+      {/* {currentWeather && <CurrentWeather weatherData={currentWeather} />} */}
     </div>
   );
 };

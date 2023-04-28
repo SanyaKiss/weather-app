@@ -7,6 +7,17 @@ $font-weight: 600;
 
 .forecast {
   position: relative;
+  .weather-container {
+    height: 450px;
+    background-color: white;
+    padding: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .days-container {
     display: flex;
     gap: 15px;
@@ -17,15 +28,24 @@ $font-weight: 600;
     background-color: #ffffff;
     height: 140px;
     width: 95px;
-    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     font-weight: $font-weight;
+    color: white;
+    background: linear-gradient(to bottom, #9cc2f7, #5d93df);
+    box-shadow: 2px -3px 5px rgba(0, 0, 0, 0.1);
+    &:hover{
+      box-shadow: 2px -3px 5px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(to bottom, #a3c3f0, #78aaf0);
+
+    }
     &.-active {
-      background: linear-gradient(to bottom, #9cc2f7, #5d93df);
-      color: white;
+      background: linear-gradient(to bottom, #b6d6ff, #ffffff);
+      color: #333;
     }
 
     .temperatures {
@@ -40,7 +60,7 @@ $font-weight: 600;
     position: absolute;
     top: 150px;
     background-color: white;
-    padding: 10px;
+    // padding: 10px;
     border-radius: 10px;
 
     .hourly {
@@ -53,15 +73,16 @@ $font-weight: 600;
 
       &__temperature {
         font-weight: bold;
+        text-align: center;
       }
     }
-    table{
+    table {
       border-collapse: collapse;
     }
     td {
       padding: 10px 10px;
     }
-    tr{
+    tr {
       border-bottom: 1px solid #e9d08b;
     }
   }
