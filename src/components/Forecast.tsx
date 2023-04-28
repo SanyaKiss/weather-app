@@ -9,6 +9,7 @@ interface DailyForecast {
   [key: string]: {
     minTemperature: number;
     maxTemperature: number;
+    
   };
 }
 
@@ -23,8 +24,11 @@ export const Forecast: FC<ForecastProps> = ({ forecastData }) => {
       item.date.includes(today)
     );
     return filteredForecast;
-  }
-  const [dailyWeather, setDailyWeather] = useState<ForecastData[]>(dailyData());
+  };
+  const [hourlyWeather, setHourlyWeather] = useState<ForecastData[]>(
+    dailyData()
+  );
+  const [selectDay, setSelectDay] = useState(0);
   const { t } = useTranslation();
 
   const dailyForecast = forecastData.reduce((acc: DailyForecast, curr) => {
@@ -53,26 +57,27 @@ export const Forecast: FC<ForecastProps> = ({ forecastData }) => {
     };
   });
 
-  const handleClick = (date: string) => {
+  const handleClick = (date: string, index: number) => {
     const filteredForecast = forecastData.filter((item) =>
       item.date.includes(date)
     );
-    setDailyWeather(filteredForecast);
+    setHourlyWeather(filteredForecast);
+    setSelectDay(index);
   };
   return (
     <div className="forecast">
-      <div className="forecast-buttons">
+      <div className="days-container">
         {dailyTemperature.slice(0, 6).map((item, index) => (
           <div
-            className="forecast__item"
+            className={`forecast__item ${selectDay === index ? "-active" : ""}`}
             key={index}
-            onClick={() => handleClick(item.date)}
+            onClick={() => handleClick(item.date, index)}
           >
             <div className="icon">
-              <img
+              {/* <img
                 src={`http://openweathermap.org/img/w/${item}.png`}
                 alt="weather icon"
-              />
+              /> */}
             </div>
             <div className="date">
               {moment(`2023 ${item.date}`).format("ddd")}
@@ -84,22 +89,26 @@ export const Forecast: FC<ForecastProps> = ({ forecastData }) => {
           </div>
         ))}
       </div>
-      <div className="forecast-daily-block">
-        {dailyWeather.map((item) => (
-          <div className="forecast__daily">
-            <div> {moment(item.date).format("h:mm A")}</div>
-            {/* <img
-              src={`http://openweathermap.org/img/w/${item.icon}.png`}
-              alt="weather icon"
-            /> */}
-            <FontAwesomeIcon
-              color="orange"
-              size="2xl"
-              icon={getWeatherIcon(item.icon)}
-            />
-            <div>{item.temperature}&deg;</div>
-          </div>
+      <div className="hourly-container">
+      <table className="hourly">
+        {hourlyWeather.map((item) => (
+              <tr>
+                <td className="hourly__time" style={{backgroundColor: "#fff1cb"}}>
+                  {moment(item.date).format("h:mm A")}
+                </td>
+                <td >
+                  <FontAwesomeIcon
+                    className="hourly__icon"
+                    style={{ color: "rgba(255, 165, 0, 0.4)" }}
+                    color="orange"
+                    size="2xl"
+                    icon={getWeatherIcon(item.icon)}
+                  />
+                </td>
+                <td className="hourly__temperature">{item.temperature}&deg;</td>
+              </tr>
         ))}
+        </table>
       </div>
     </div>
   );

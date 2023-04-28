@@ -26,11 +26,8 @@ export const CurrentWeather: FC<CurrentWeatherProps> = ({ weatherData }) => {
             {Math.round(weatherData.main.temp)}&deg;C
           </h1>
           <div className="icon">
-            {/* <img
-              src={`http://openweathermap.org/img/w/${}.png`}
-              alt="weather icon"
-            /> */}
             <FontAwesomeIcon
+              style={{ color: "rgba(210, 228, 253)" }}
               color="Dodgerblue"
               size="2xl"
               icon={getWeatherIcon(weatherData.weather[0].icon)}

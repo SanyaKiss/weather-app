@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 10px;
   &__date {
     color: $font-color;
   }
@@ -11,9 +12,9 @@
     margin-right: 5px;
     box-sizing: border-box;
     padding: 5px;
-    width: 150px;
-    height: 25px;
-    border-radius: 5px;
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
     border: 1px solid $blue-color
   }
   &__button{
@@ -22,8 +23,5 @@
     border: 1px solid $blue-color;
     background-color: $blue-color;
     color: $font-color;
-    :active{
-
-    }
   }
 }
