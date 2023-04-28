@@ -20,7 +20,7 @@ export const CurrentWeather: FC<CurrentWeatherProps> = ({ weatherData }) => {
   return (
     <div className="current-weather">
       <div className="main-block">
-        <h2 className="city-name">{t("Odessa")}</h2>
+        <h2 className="city-name">{weatherData.name}</h2>
         <div className="temperature-icon">
           <h1 className="temperature">
             {Math.round(weatherData.main.temp)}&deg;C

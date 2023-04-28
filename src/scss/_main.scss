@@ -1,5 +1,29 @@
 @use "_forecast";
 
-.current-date {
-  color: $font-color;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__date {
+    color: $font-color;
+  }
+  &__input{
+    margin-right: 5px;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 150px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid $blue-color
+  }
+  &__button{
+    padding: 2px 7px;
+    border-radius: 5px;
+    border: 1px solid $blue-color;
+    background-color: $blue-color;
+    color: $font-color;
+    :active{
+
+    }
+  }
 }

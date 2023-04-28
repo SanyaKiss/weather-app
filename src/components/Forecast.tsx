@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { ForecastData, WeatherData } from "./Main";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +17,14 @@ type ForecastProps = {
 };
 
 export const Forecast: FC<ForecastProps> = ({ forecastData }) => {
-  const [dailyWeather, setDailyWeather] = useState<ForecastData[]>([]);
+  const dailyData = () => {
+    const today = moment().format("ddd, D MMM");
+    const filteredForecast = forecastData.filter((item) =>
+      item.date.includes(today)
+    );
+    return filteredForecast;
+  }
+  const [dailyWeather, setDailyWeather] = useState<ForecastData[]>(dailyData());
   const { t } = useTranslation();
 
   const dailyForecast = forecastData.reduce((acc: DailyForecast, curr) => {
