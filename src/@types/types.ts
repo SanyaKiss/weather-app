@@ -1,9 +1,9 @@
 import { IconType } from "../utils/getWeatherIcon";
 
 export interface WeatherData {
-    id: number;
+    id?: number;
     main: string;
-    description: string;
+    description?: string;
     icon: IconType;
   }
   
@@ -12,8 +12,8 @@ export interface WeatherData {
     feels_like: number;
     humidity: number;
     pressure: number;
-    sunrise: number;
-    sunset: number;
+    maxTemp?:number;
+    minTemp?:number
   }
   
   export interface SysData {
@@ -26,9 +26,9 @@ export interface WeatherData {
   }
   
   export interface WeatherApiResponse {
-    weather: WeatherData[];
+    weather?: WeatherData[];
     main: MainData;
-    sys: SysData;
+    sys?: SysData;
     wind: WindData;
     dt_txt: number;
     name: string;
@@ -54,6 +54,8 @@ export interface WeatherData {
       totalWindSpeed: number;
       totalHumidity: number;
       totalPressure: number;
+      name:string;
+      dt_txt:number;
       count: 1;
     };
   }

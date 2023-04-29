@@ -3,8 +3,6 @@ import pressureIcon from "../assets/img/pressure.png";
 import humidityIcon from "../assets/img/humidity.png";
 import windIcon from "../assets/img/wind.png";
 import { useTranslation } from "react-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getWeatherIcon } from "../utils/getWeatherIcon";
 import { WeatherApiResponse } from "../@types/types";
 import { InfoCard } from "./infoCard";
 import { SunStateBlock } from "./SunStateBlock";
@@ -15,7 +13,7 @@ interface CurrentWeatherProps {
 
 export const CurrentWeather: FC<CurrentWeatherProps> = ({ weatherData }) => {
   const { t } = useTranslation();
-  const { name, main, weather, sys, wind } = weatherData;
+  const { name, main, sys, wind } = weatherData;
 
   return (
     <div className="current-weather">
@@ -27,7 +25,7 @@ export const CurrentWeather: FC<CurrentWeatherProps> = ({ weatherData }) => {
         <p className="feels-like">
           {t("Feels like")} {Math.round(main.feels_like)}&deg;
         </p>
-        <SunStateBlock sys = {sys} />
+        {sys && <SunStateBlock sys={sys} />}
       </div>
       <div className="info-container">
         <InfoCard

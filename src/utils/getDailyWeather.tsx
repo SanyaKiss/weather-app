@@ -9,7 +9,8 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
     const windSpeed = Math.round(curr.wind.speed);
     const humidity = curr.main.humidity;
     const pressure = curr.main.pressure;
-
+    const name = curr.name;
+    const dt_txt = curr.dt_txt
     if (!acc[date]) {
       acc[date] = {
         minTemperature: temperature,
@@ -19,11 +20,19 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
         totalWindSpeed: windSpeed,
         totalHumidity: humidity,
         totalPressure: pressure,
+        dt_txt:dt_txt,
+        name:name,
         count: 1,
       };
     } else {
-      acc[date].minTemperature = Math.min(acc[date].minTemperature, temperature);
-      acc[date].maxTemperature = Math.max(acc[date].maxTemperature, temperature);
+      acc[date].minTemperature = Math.min(
+        acc[date].minTemperature,
+        temperature
+      );
+      acc[date].maxTemperature = Math.max(
+        acc[date].maxTemperature,
+        temperature
+      );
       acc[date].totalTemperature += temperature;
       acc[date].totalFeelsLike += feelsLike;
       acc[date].totalWindSpeed += windSpeed;
@@ -35,22 +44,33 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
   }, {});
 
   const dailyTemperature = Object.keys(dailyForecast).map((date) => {
-    const { minTemperature, maxTemperature, totalTemperature, totalFeelsLike, totalWindSpeed, totalHumidity, totalPressure, count } = dailyForecast[date];
+    const {
+      minTemperature,
+      maxTemperature,
+      totalTemperature,
+      totalFeelsLike,
+      totalWindSpeed,
+      totalHumidity,
+      totalPressure,
+      name,
+      dt_txt,
+      count,
+    } = dailyForecast[date];
     return {
-      date: date,
-      minTemperature: minTemperature,
-      maxTemperature: maxTemperature,
-      averageTemperature: Math.round(totalTemperature / count),
-      averageFeelsLike: Math.round(totalFeelsLike / count),
-      averageWindSpeed: Math.round(totalWindSpeed / count),
-      averageHumidity: Math.round(totalHumidity / count),
-      averagePressure: Math.round(totalPressure / count),
+      main: {
+        temp: Math.round(totalTemperature / count),
+        feels_like: Math.round(totalFeelsLike / count),
+        humidity: Math.round(totalHumidity / count),
+        pressure: Math.round(totalPressure / count),
+        maxTemp: maxTemperature,
+        minTemp: minTemperature,
+      },
+      wind: {
+        speed: Math.round(totalWindSpeed / count),
+      },
+      name: name,
+      dt_txt:dt_txt
     };
   });
   return dailyTemperature;
 };
-
-
-
-
-
