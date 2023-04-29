@@ -7,7 +7,7 @@ export interface WeatherData {
     icon: IconType;
   }
   
-  interface MainData {
+  export interface MainData {
     temp: number;
     feels_like: number;
     humidity: number;
@@ -21,7 +21,7 @@ export interface WeatherData {
     sunset: number;
   }
   
-  interface WindData {
+  export interface WindData {
     speed: number;
   }
   

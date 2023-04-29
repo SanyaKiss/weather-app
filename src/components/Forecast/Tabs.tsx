@@ -1,7 +1,5 @@
 import React, { FC } from "react";
-import { getWeatherIcon } from "../../utils/getWeatherIcon";
-import { dayFormat, hourlyFormat } from "../../utils/dateFormatter";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { dayFormat } from "../../utils/dateFormatter";
 import { WeatherApiResponse } from "../../@types/types";
 import { getDailyForecastData } from "../../utils/getDailyWeather";
 

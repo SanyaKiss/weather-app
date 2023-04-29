@@ -24,7 +24,7 @@ export const Main = () => {
     fetchWeatherData();
     fetchForecastData();
   }, [currentCity]);
-  
+
   const handleCityChange = (city: string) => {
     setCurrentCity(city);
   };

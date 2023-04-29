@@ -11,12 +11,12 @@ export const Header: FC<HeaderProps> = ({ searchCity }) => {
   const [language, setLanguage] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
 
+  const currentDate = moment().format("dddd, MMMM DD, YYYY");
+
   const handleLanguage = () => {
     setLanguage((prev) => !prev);
     language ? i18n.changeLanguage("uk") : i18n.changeLanguage("en");
   };
-
-  const currentDate = moment().format("dddd, MMMM DD, YYYY");
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -40,7 +40,7 @@ export const Header: FC<HeaderProps> = ({ searchCity }) => {
           onChange={(e) => setSearch(e.target.value)}
         />
         <button className="header__button submit-button" type="submit">
-            <img className="header__icon" src={searchIcon} alt="" />
+          <img className="header__icon" src={searchIcon} alt="search" />
         </button>
       </form>
       <button className="header__button" onClick={handleLanguage}>
