@@ -1,7 +1,5 @@
-import React from "react";
-import { DailyForecast } from "../components/Forecast";
-import { WeatherApiResponse } from "../components/Main";
 import moment from "moment";
+import { DailyForecast, WeatherApiResponse } from "../@types/types";
 
 export const getDailyForecastData = (data: WeatherApiResponse[]) => {
   const dailyForecast = data.reduce((acc: DailyForecast, curr) => {

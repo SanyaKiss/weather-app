@@ -5,7 +5,7 @@
   justify-content:end;
   color: $font-color;
   margin-top: 10px;
-  .main-block {
+  .main-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,7 +39,7 @@
       font-weight: $font-weight;
     }
 
-    .sun-block {
+    .sun-state-container {
       background-color: $yellow-color;
       padding: 15px;
       border-radius: 15px;
@@ -73,7 +73,7 @@
     }
   }
 
-  .info-block {
+  .info-container {
     .info {
       box-sizing: border-box;
       padding: 15px;
