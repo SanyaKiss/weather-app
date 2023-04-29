@@ -1,11 +1,11 @@
 import { FC } from "react";
-import pressureIcon from "../assets/img/pressure.png";
-import humidityIcon from "../assets/img/humidity.png";
-import windIcon from "../assets/img/wind.png";
+import pressureIcon from "../../assets/img/pressure.png";
+import humidityIcon from "../../assets/img/humidity.png";
+import windIcon from "../../assets/img/wind.png";
 import { useTranslation } from "react-i18next";
-import { WeatherApiResponse } from "../@types/types";
 import { InfoCard } from "./infoCard";
 import { SunStateBlock } from "./SunStateBlock";
+import { WeatherApiResponse } from "../../@types/types";
 
 interface CurrentWeatherProps {
   weatherData: WeatherApiResponse;

@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import sunIcon from "../assets/img/sun.svg";
-import moonIcon from "../assets/img/moon.svg";
-import { sunTimeFormat } from "../utils/dateFormatter";
+import sunIcon from "../../assets/img/sun.svg";
+import moonIcon from "../../assets/img/moon.svg";
+import { sunTimeFormat } from "../../utils/dateFormatter";
 import { useTranslation } from "react-i18next";
-import { SysData } from "../@types/types";
+import { SysData } from "../../@types/types";
 
 type SunStateProps = {
   sys: SysData;

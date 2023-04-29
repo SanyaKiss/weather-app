@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Forecast } from "./Forecast";
+import { Forecast } from "./Forecast/index";
 import { ForecastApiResponse, WeatherApiResponse } from "../@types/types";
 import { getCurrentWeather, getForecast } from "../api/fetchWeather";
 import { Header } from "./Header";
@@ -35,7 +35,6 @@ export const Main = () => {
       {forecast && currentWeather && (
         <Forecast forecastData={forecast} weatherData={currentWeather} />
       )}
-      {/* {currentWeather && <CurrentWeather weatherData={currentWeather} />} */}
     </div>
   );
 };

@@ -11,11 +11,12 @@
   &__input{
     margin-right: 5px;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 0 12px;
     width: 200px;
     height: 35px;
     border-radius: 10px;
-    border: 1px solid $blue-color
+    border: 1px solid $blue-color;
+    font-style: italic;
   }
   &__button{
     padding: 2px 7px;
@@ -23,5 +24,19 @@
     border: 1px solid $blue-color;
     background-color: $blue-color;
     color: $font-color;
+  }
+  &__icon{
+    width: 20px;
+    height: 20px;
+  }
+  form{
+    position: relative;
+  }
+  .submit-button{
+    background-color: white;
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    border: none;
   }
 }
