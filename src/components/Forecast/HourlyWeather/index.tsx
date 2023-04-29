@@ -1,8 +1,10 @@
 import React, { FC } from 'react'
-import { WeatherApiResponse } from '../../@types/types'
-import { hourlyFormat } from '../../utils/dateFormatter'
+//@ts-ignore
+import styles from "./HourlyWeather.module.scss";
+import { WeatherApiResponse } from '../../../@types/types'
+import { hourlyFormat } from '../../../utils/dateFormatter'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { getWeatherIcon } from '../../utils/getWeatherIcon'
+import { getWeatherIcon } from '../../../utils/getWeatherIcon'
 
 type HourlyWeatherProps = {
   weather:WeatherApiResponse[]
@@ -10,12 +12,12 @@ type HourlyWeatherProps = {
 
 export const HourlyWeather:FC<HourlyWeatherProps> = ({weather}) => {
   return (
-    <div className="hourly-container">
-    <table className="hourly">
+    <div className={styles.hourlyContainer}>
+    <table className={styles.hourItem}>
       {weather.map((item) => (
         <tr>
           <td
-            className="hourly__time"
+            className={styles.hourItem__time}
             style={{ backgroundColor: "#fff1cb" }}
           >
             {hourlyFormat(item.dt_txt)}
@@ -23,7 +25,7 @@ export const HourlyWeather:FC<HourlyWeatherProps> = ({weather}) => {
           <td>
             {item.weather && (
               <FontAwesomeIcon
-                className="hourly__icon"
+                className={styles.hourItem__icon}
                 style={{ color: "rgba(255, 165, 0, 0.4)" }}
                 color="orange"
                 size="2xl"
@@ -31,7 +33,7 @@ export const HourlyWeather:FC<HourlyWeatherProps> = ({weather}) => {
               />
             )}
           </td>
-          <td className="hourly__temperature">
+          <td className={styles.hourItem__temperature}>
             {Math.round(item.main.temp)}&deg;
           </td>
         </tr>

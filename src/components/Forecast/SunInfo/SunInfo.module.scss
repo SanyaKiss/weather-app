@@ -1,0 +1,38 @@
+@use "../../../scss/styles.scss" as *;
+
+.sunInfo {
+    background-color: $yellow-color;
+    padding: 15px;
+    border-radius: 15px;
+    align-self: flex-end;
+    position: absolute;
+    left: 269px;
+    &__title {
+      font-weight: $font-weight;
+      color:black
+    }
+    .sunriseSunset {
+      display: flex;
+      margin-top: 5px;
+      &__item {
+        display: flex;
+      }
+      &__icon {
+        width: 50px;
+        height: 50px;
+      }
+      &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+      &__name {
+        font-size: small;
+        color: rgb(207, 207, 207);
+      }
+      &__time {
+        font-weight: $font-weight;
+      }
+
+    }
+  }

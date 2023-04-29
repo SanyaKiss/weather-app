@@ -9,7 +9,6 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
     const windSpeed = Math.round(curr.wind.speed);
     const humidity = curr.main.humidity;
     const pressure = curr.main.pressure;
-    const name = curr.name;
     const dt_txt = curr.dt_txt
     if (!acc[date]) {
       acc[date] = {
@@ -21,7 +20,6 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
         totalHumidity: humidity,
         totalPressure: pressure,
         dt_txt:dt_txt,
-        name:name,
         count: 1,
       };
     } else {
@@ -52,7 +50,6 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
       totalWindSpeed,
       totalHumidity,
       totalPressure,
-      name,
       dt_txt,
       count,
     } = dailyForecast[date];
@@ -68,7 +65,6 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
       wind: {
         speed: Math.round(totalWindSpeed / count),
       },
-      name: name,
       dt_txt:dt_txt
     };
   });

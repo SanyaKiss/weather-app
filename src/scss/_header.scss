@@ -1,0 +1,48 @@
+$green-color: #cde9d6;
+$blue-color: #d2e4fd;
+$yellow-color: #fff1cb;
+$pink-color: #f8d3cf;
+$font-color: #619df0;
+$font-weight: 600;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+    &__date {
+      color: $font-color;
+    }
+    &__input{
+      margin-right: 5px;
+      box-sizing: border-box;
+      padding: 0 12px;
+      width: 200px;
+      height: 35px;
+      border-radius: 10px;
+      border: 1px solid $blue-color;
+      font-style: italic;
+    }
+    &__button{
+      padding: 2px 7px;
+      border-radius: 5px;
+      border: 1px solid $blue-color;
+      background-color: $blue-color;
+      color: $font-color;
+    }
+    &__icon{
+      width: 20px;
+      height: 20px;
+    }
+    form{
+      position: relative;
+    }
+    .submit-button{
+      background-color: white;
+      position: absolute;
+      right: 10px;
+      top: 4px;
+      border: none;
+    }
+  }
+  

@@ -1,7 +1,14 @@
 @import "_forecast";
-@import "_currentWeather";
-@import "_main";
+@import "_header";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;700;800;900&display=swap");
+
+$green-color: #cde9d6;
+$blue-color: #d2e4fd;
+$yellow-color: #fff1cb;
+$pink-color: #f8d3cf;
+$font-color: #619df0;
+$font-weight: 600;
+
 
 html,
 body {

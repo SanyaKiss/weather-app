@@ -54,7 +54,6 @@ export interface WeatherData {
       totalWindSpeed: number;
       totalHumidity: number;
       totalPressure: number;
-      name:string;
       dt_txt:number;
       count: 1;
     };
