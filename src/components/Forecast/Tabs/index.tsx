@@ -7,15 +7,17 @@ import { WeatherApiResponse } from "../../../@types/types";
 import { getDailyForecastData } from "../../../utils/getDailyWeather";
 
 type TabsProps = {
-  data: WeatherApiResponse[];
+  weather: WeatherApiResponse[];
   selectDay: number;
   handleClick: (date: number, index: number) => void;
 };
 
-export const Tabs: FC<TabsProps> = ({ data, selectDay, handleClick }) => {
+export const Tabs: FC<TabsProps> = ({ weather, selectDay, handleClick }) => {
+  weather.forEach(item=>console.log(item.dt_txt))
+  
   return (
     <div className={styles.tabs}>
-      {getDailyForecastData(data).map((item, index) => (
+      {getDailyForecastData(weather).map((item, index) => (
         <div
           className={`${styles.tabItem} ${
             selectDay === index ? styles["-active"] : ""

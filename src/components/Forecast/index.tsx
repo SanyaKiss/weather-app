@@ -40,7 +40,7 @@ export const Forecast: FC<ForecastProps> = ({ forecastData, weatherData }) => {
 
   return (
     <div className="forecast">
-      <Tabs data={data} selectDay={selectDay} handleClick={handleClick} />
+      <Tabs weather={data} selectDay={selectDay} handleClick={handleClick} />
       <div className="weather-container">
         <HourlyWeather weather={hourlyWeather} />
         {dayWeather.sys && <SunInfo sys={dayWeather.sys } />}
