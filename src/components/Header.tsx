@@ -42,9 +42,6 @@ export const Header: FC<HeaderProps> = ({ cityChange }) => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button className="header__button submit-button" type="submit">
-          <img className="header__icon" src={searchIcon} alt="search" />
-        </button>
       </form>
       <button className="header__button button" onClick={handleLanguageChange}>
         {language ? "укр" : "en"}

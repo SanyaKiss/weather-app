@@ -2,9 +2,8 @@
 
 .hourlyContainer {
   color: $font-color;
-  
+  width:100%;
   .hourItem {
-    width: 100%;
     &__time {
       font-weight: bold;
       text-align: center;
@@ -20,13 +19,13 @@
   }
   table {
     border-collapse: collapse;
-    }
+    width: 100%;
+
+   }
   td {
-    padding: 10px 10px;
+    text-align: center;
   }
   tr {
-    border-bottom: 2px solid 
-    #FFBC94
     ;
   }
   

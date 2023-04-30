@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import styles from "./MainCard.module.scss";
 import { MainData } from "../../../@types/types";
 import { useTranslation } from "react-i18next";
+import catsImg from "../../../assets/kittens_2_png/file_125700562.png";
 
 interface MainCardProps {
   name: string;
@@ -12,13 +13,18 @@ export const MainCard: FC<MainCardProps> = ({ name, main }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.main}>
-      <h2 className={styles.city}>{name}</h2>
-      <div className={styles.temperatureIcon}>
-        <h1 className={styles.temperature}>{Math.round(main?.temp)}&deg;C</h1>
+      <div>
+        <h2 className={styles.city}>{name}</h2>
+        <div className={styles.temperatureIcon}>
+          <h1 className={styles.temperature}>{Math.round(main?.temp)}&deg;C</h1>
+        </div>
+        <p className={styles.feelsLike}>
+          {t("Feels like")} {Math.round(main?.feels_like)}&deg;
+        </p>
       </div>
-      <p className={styles.feelsLike}>
-        {t("Feels like")} {Math.round(main?.feels_like)}&deg;
-      </p>
+      <div className={styles.imageContainer}>
+        <img className={styles.image} src={catsImg} alt="" />
+      </div>
     </div>
   );
 };
