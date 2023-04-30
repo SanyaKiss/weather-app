@@ -37,7 +37,7 @@ export const Main = () => {
     setCurrentCity("Kyiv");
   };
   return (
-    <div>
+    <div className="main">
       <Header cityChange={handleCityChange} />
       {loading ? (
         <FontAwesomeIcon icon={faSpinner} spin size="2xl" />

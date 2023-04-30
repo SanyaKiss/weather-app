@@ -2,7 +2,7 @@ $green-color: #cde9d6;
 $blue-color: #d2e4fd;
 $yellow-color: #fff1cb;
 $pink-color: #f8d3cf;
-$font-color: #619df0;
+$font-color: #59564D;
 $font-weight: 600;
 
 .header {
@@ -10,7 +10,6 @@ $font-weight: 600;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 40px;
-  background-color: #FEF5DA;
   &__date {
     color: $font-color;
   }

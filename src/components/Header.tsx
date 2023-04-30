@@ -38,7 +38,7 @@ export const Header: FC<HeaderProps> = ({ cityChange }) => {
         <input
           className="header__input"
           type="text"
-          placeholder="enter city"
+          placeholder="Enter city..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />

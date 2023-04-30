@@ -4,10 +4,11 @@
     .card {
       box-sizing: border-box;
       padding: 15px;
-      background-color: $blue-color;
+      background: #f9b891;
+      color: #664938;
+      border-radius: 24px;
       height: 100px;
       width: 150px;
-      border-radius: 15px;
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
@@ -23,7 +24,6 @@
       &__value {
         font-size: large;
         font-weight: $font-weight;
-        color: rgb(0, 0, 0);
         color:$font-color;
       }
       &__icon {

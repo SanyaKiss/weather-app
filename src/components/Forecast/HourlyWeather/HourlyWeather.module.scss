@@ -1,34 +1,33 @@
 @use "../../../scss/styles.scss" as *;
 
 .hourlyContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-self: flex-start;
-    top: 150px;
-    background-color: white;
-    border-radius: 10px;
-
-    .hourItem {
-      width: 100%;
-      &__time {
-        color: #333;
-        font-weight: bold;
-        text-align: center;
-      }
-
-      &__temperature {
-        font-weight: bold;
-        text-align: center;
-      }
+  color: $font-color;
+  
+  .hourItem {
+    width: 100%;
+    &__time {
+      font-weight: bold;
+      text-align: center;
     }
-    table {
-      border-collapse: collapse;
+    &__icon {
+      width: 40px;
+      height: 40px;
     }
-    td {
-      padding: 10px 10px;
-    }
-    tr {
-      border-bottom: 1px solid #e9d08b;
+    &__temperature {
+      font-weight: bold;
+      text-align: center;
     }
   }
+  table {
+    border-collapse: collapse;
+    }
+  td {
+    padding: 10px 10px;
+  }
+  tr {
+    border-bottom: 2px solid 
+    #FFBC94
+    ;
+  }
+  
+}

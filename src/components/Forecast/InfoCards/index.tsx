@@ -1,9 +1,10 @@
 import { FC } from "react";
 //@ts-ignore
 import styles from "./InfoCards.module.scss";
-import pressureIcon from "../../../assets/img/pressure.png";
-import humidityIcon from "../../../assets/img/humidity.png";
-import windIcon from "../../../assets/img/wind.png";
+import pressureIcon from "../../../assets/weather-icons/pressure.png";
+import humidityIcon from "../../../assets/weather-icons/icons8-hygrometer-64.png";
+import windIcon from "../../../assets/weather-icons/icons8-wind-64.png";
+
 import { MainData, WindData } from "../../../@types/types";
 import { useTranslation } from "react-i18next";
 
