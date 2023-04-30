@@ -1,0 +1,15 @@
+.button {
+    padding: 2px 7px;
+    border-radius: 5px;
+    border: 1px solid $blue-color;
+    background-color: $blue-color;
+    color: $font-color;
+    &:hover {
+      background-color: #d1e4ff;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+    &:active {
+      background-color: #c7deff;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    }
+}  

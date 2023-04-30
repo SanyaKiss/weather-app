@@ -33,10 +33,12 @@ export const Main = () => {
   const handleCityChange = (city: string) => {
     setCurrentCity(city);
   };
-
+  const handleBackClick = () => {
+    setCurrentCity("Kyiv");
+  };
   return (
     <div>
-      <Header searchCity={handleCityChange} />
+      <Header cityChange={handleCityChange} />
       {loading ? (
         <FontAwesomeIcon icon={faSpinner} spin size="2xl" />
       ) : (
@@ -44,10 +46,10 @@ export const Main = () => {
           {currentWeather && forecast ? (
             <Forecast forecastData={forecast} weatherData={currentWeather} />
           ) : (
-            <NotFound />
+            <NotFound cityName={currentCity} onBackClick={handleBackClick}  />
           )}
         </>
-      )}{" "}
+      )}
     </div>
   );
 };

@@ -9,5 +9,7 @@
   "Pressure": "pressure",
   "M/sec": "M/sec",
   "%": "%",
-  "hPa": "hPa"
+  "hPa": "hPa",
+  "NotFound":" Сity ​​not found",
+  "Back":"Back"
 }

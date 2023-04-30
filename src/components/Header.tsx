@@ -1,26 +1,29 @@
 import moment from "moment";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import i18n from "../18n";
 import searchIcon from "../assets/img/search-icon.png";
 
 type HeaderProps = {
-  searchCity: (city: string) => void;
+  cityChange: (city: string) => void;
 };
 
-export const Header: FC<HeaderProps> = ({ searchCity }) => {
+export const Header: FC<HeaderProps> = ({ cityChange }) => {
   const [language, setLanguage] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
 
   const currentDate = moment().format("dddd, MMMM DD, YYYY");
 
-  const handleLanguage = () => {
-    setLanguage((prev) => !prev);
+  useEffect(() => {
     language ? i18n.changeLanguage("uk") : i18n.changeLanguage("en");
+  }, [language]);
+
+  const handleLanguageChange = () => {
+    setLanguage((prev) => !prev);
   };
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    searchCity(search);
+    cityChange(search);
     setSearch("");
   };
 
@@ -43,7 +46,7 @@ export const Header: FC<HeaderProps> = ({ searchCity }) => {
           <img className="header__icon" src={searchIcon} alt="search" />
         </button>
       </form>
-      <button className="header__button" onClick={handleLanguage}>
+      <button className="header__button button" onClick={handleLanguageChange}>
         {language ? "укр" : "en"}
       </button>
     </header>

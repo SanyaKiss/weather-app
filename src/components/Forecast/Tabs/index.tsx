@@ -13,8 +13,6 @@ type TabsProps = {
 };
 
 export const Tabs: FC<TabsProps> = ({ weather, selectDay, handleClick }) => {
-  weather.forEach(item=>console.log(item.dt_txt))
-  
   return (
     <div className={styles.tabs}>
       {getDailyForecastData(weather).map((item, index) => (
