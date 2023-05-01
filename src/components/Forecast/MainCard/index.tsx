@@ -1,14 +1,14 @@
 import React, { FC } from "react";
 //@ts-ignore
 import styles from "./MainCard.module.scss";
-import { MainData } from "../../../@types/types";
+import { MainData, UnitsType } from "../../../@types/types";
 import { useTranslation } from "react-i18next";
 import catsImg from "../../../assets/kittens_2_png/file_125700562.png";
 
 interface MainCardProps {
   name: string;
   main: MainData;
-  units: "metric" | "imperial";
+  units: UnitsType
 }
 export const MainCard: FC<MainCardProps> = ({ name, main, units }) => {
   const { t } = useTranslation();

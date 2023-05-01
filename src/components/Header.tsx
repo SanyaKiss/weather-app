@@ -1,11 +1,12 @@
 import moment from "moment";
 import React, { FC, useEffect, useState } from "react";
 import i18n from "../18n";
+import { UnitsType } from "../@types/types";
 
 type HeaderProps = {
   cityChange: (city: string) => void;
   unitsChange: () => void;
-  units: "metric" | "imperial";
+  units: UnitsType;
 };
 
 export const Header: FC<HeaderProps> = ({ cityChange, unitsChange, units }) => {

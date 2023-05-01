@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { getDailyForecastData } from "../../utils/getDailyWeather";
-import { ForecastApiResponse, WeatherApiResponse } from "../../@types/types";
+import { ForecastApiResponse, UnitsType, WeatherApiResponse } from "../../@types/types";
 import { dateFormat } from "../../utils/dateFormatter";
 import { Tabs } from "./Tabs";
 import { HourlyWeather } from "./HourlyWeather";
@@ -11,7 +11,7 @@ import { InfoCards } from "./InfoCards";
 type ForecastProps = {
   forecastData: ForecastApiResponse;
   weatherData: WeatherApiResponse;
-  units: "metric" | "imperial";
+  units: UnitsType;
 };
 
 export const Forecast: FC<ForecastProps> = ({
