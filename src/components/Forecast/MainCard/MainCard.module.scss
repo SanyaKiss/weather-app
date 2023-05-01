@@ -2,7 +2,7 @@
 
 .main {
   box-sizing: border-box;
-  width: 70%;
+  max-width: 70%;
   height: 70%;
   display: flex;
   justify-content: space-between;
@@ -17,7 +17,7 @@
     align-items: center;
     .temperature {
       font-size: 65px;
-      width: 150px;
+      max-width: 150px;
     }
   }
   .city{
@@ -28,10 +28,10 @@
     font-size: large;
   }
   .imageContainer {
-    width: 250px;
+    max-width: 250px;
     align-self: flex-end;
     .image {
-      width: 250px;
+      max-width: 250px;
     }
   }
 }
