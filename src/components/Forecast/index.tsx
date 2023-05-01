@@ -11,9 +11,14 @@ import { InfoCards } from "./InfoCards";
 type ForecastProps = {
   forecastData: ForecastApiResponse;
   weatherData: WeatherApiResponse;
+  units: "metric" | "imperial";
 };
 
-export const Forecast: FC<ForecastProps> = ({ forecastData, weatherData }) => {
+export const Forecast: FC<ForecastProps> = ({
+  forecastData,
+  weatherData,
+  units,
+}) => {
   const { list: data } = forecastData;
   const todayData = () => {
     const today = dateFormat();
@@ -34,8 +39,15 @@ export const Forecast: FC<ForecastProps> = ({ forecastData, weatherData }) => {
     const filterWeather = getDailyForecastData(data).filter((item) =>
       dateFormat(item.dt_txt).includes(dateFormat(date))
     );
-
-    setDayWeather(index === 0 ? weatherData : {...filterWeather[0], name: weatherData.name, weather: [{icon: weatherData.weather?.[0].icon}]});
+    setDayWeather(
+      index === 0
+        ? weatherData
+        : {
+            ...filterWeather[0],
+            name: weatherData.name,
+            weather: [{ icon: weatherData.weather?.[0].icon }],
+          }
+    );
   };
 
   return (
@@ -43,11 +55,10 @@ export const Forecast: FC<ForecastProps> = ({ forecastData, weatherData }) => {
       <Tabs weather={data} selectDay={selectDay} handleClick={handleClick} />
       <div className="weather-container">
         <HourlyWeather weather={hourlyWeather} />
-          {dayWeather.sys && <SunInfo sys={dayWeather.sys } />}
-          <MainCard name={dayWeather.name} main={dayWeather.main} />
-          <InfoCards wind={dayWeather.wind} main={dayWeather.main} />
-  
-    </div>
+        {dayWeather.sys && <SunInfo sys={dayWeather.sys} />}
+        <MainCard name={dayWeather.name} main={dayWeather.main} units={units} />
+        <InfoCards wind={dayWeather.wind} main={dayWeather.main} />
+      </div>
     </div>
   );
 };

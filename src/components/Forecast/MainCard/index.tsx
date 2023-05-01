@@ -8,15 +8,19 @@ import catsImg from "../../../assets/kittens_2_png/file_125700562.png";
 interface MainCardProps {
   name: string;
   main: MainData;
+  units: "metric" | "imperial";
 }
-export const MainCard: FC<MainCardProps> = ({ name, main }) => {
+export const MainCard: FC<MainCardProps> = ({ name, main, units }) => {
   const { t } = useTranslation();
+  const unitSymbol = units === "metric" ? "C" : "F";
   return (
     <div className={styles.main}>
       <div>
         <h2 className={styles.city}>{name}</h2>
         <div className={styles.temperatureIcon}>
-          <h1 className={styles.temperature}>{Math.round(main?.temp)}&deg;C</h1>
+          <h1 className={styles.temperature}>
+            {Math.round(main?.temp)}&deg;{unitSymbol}
+          </h1>
         </div>
         <p className={styles.feelsLike}>
           {t("Feels like")} {Math.round(main?.feels_like)}&deg;

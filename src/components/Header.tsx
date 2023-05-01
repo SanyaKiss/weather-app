@@ -4,9 +4,11 @@ import i18n from "../18n";
 
 type HeaderProps = {
   cityChange: (city: string) => void;
+  unitsChange: () => void;
+  units: "metric" | "imperial";
 };
 
-export const Header: FC<HeaderProps> = ({ cityChange }) => {
+export const Header: FC<HeaderProps> = ({ cityChange, unitsChange, units }) => {
   const [language, setLanguage] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
 
@@ -44,6 +46,9 @@ export const Header: FC<HeaderProps> = ({ cityChange }) => {
       </form>
       <button className="header__button button" onClick={handleLanguageChange}>
         {language ? "укр" : "en"}
+      </button>
+      <button className="header__button button" onClick={unitsChange}>
+        {units === "metric" ? "°C" : "°F"}
       </button>
     </header>
   );
