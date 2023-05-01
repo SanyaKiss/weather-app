@@ -76,9 +76,9 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
       wind: {
         speed: Math.round(totalWindSpeed / count),
       },
-      weather: {
+      weather: [{
         icon: icon,
-      },
+      }],
       dt_txt: dt_txt,
     };
   });

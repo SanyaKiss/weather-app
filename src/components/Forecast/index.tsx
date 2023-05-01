@@ -1,6 +1,10 @@
 import React, { FC, useState } from "react";
 import { getDailyForecastData } from "../../utils/getDailyWeather";
-import { ForecastApiResponse, UnitsType, WeatherApiResponse } from "../../@types/types";
+import {
+  ForecastApiResponse,
+  UnitsType,
+  WeatherApiResponse,
+} from "../../@types/types";
 import { dateFormat } from "../../utils/dateFormatter";
 import { Tabs } from "./Tabs";
 import { HourlyWeather } from "./HourlyWeather";
@@ -39,13 +43,14 @@ export const Forecast: FC<ForecastProps> = ({
     const filterWeather = getDailyForecastData(data).filter((item) =>
       dateFormat(item.dt_txt).includes(dateFormat(date))
     );
+    console.log(filterWeather[0], 'filtered ')
     setDayWeather(
       index === 0
         ? weatherData
         : {
             ...filterWeather[0],
             name: weatherData.name,
-            weather: [{ icon: weatherData.weather?.[0].icon }],
+            // weather: [{ icon: weatherData.weather[0].icon }],
           }
     );
   };
@@ -56,8 +61,13 @@ export const Forecast: FC<ForecastProps> = ({
       <div className="weather-container">
         <HourlyWeather weather={hourlyWeather} />
         {dayWeather.sys && <SunInfo sys={dayWeather.sys} />}
-        <MainCard name={dayWeather.name} main={dayWeather.main} units={units} />
-        <InfoCards wind={dayWeather.wind} main={dayWeather.main} />
+        <MainCard
+          name={dayWeather.name}
+          main={dayWeather.main}
+          icon={dayWeather.weather[0].icon}
+          units={units}
+        />
+        <InfoCards wind={dayWeather.wind} main={dayWeather.main}  />
       </div>
     </div>
   );

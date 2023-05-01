@@ -31,7 +31,7 @@ export const Tabs: FC<TabsProps> = ({ weather, selectDay, handleClick }) => {
           </div>
           <img
             className={styles.tabItem__icon}
-            src={getWeatherIcon(item.weather.icon)}
+            src={getWeatherIcon(item.weather[0].icon)}
             alt="weather icon"
           />
           <div className={styles.tabItem__temperatures}>
