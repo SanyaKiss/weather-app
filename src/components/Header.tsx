@@ -1,7 +1,6 @@
 import moment from "moment";
 import React, { FC, useEffect, useState } from "react";
 import i18n from "../18n";
-import searchIcon from "../assets/img/search-icon.png";
 
 type HeaderProps = {
   cityChange: (city: string) => void;

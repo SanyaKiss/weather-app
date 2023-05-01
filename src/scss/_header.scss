@@ -2,7 +2,7 @@ $green-color: #cde9d6;
 $blue-color: #d2e4fd;
 $yellow-color: #fff1cb;
 $pink-color: #f8d3cf;
-$font-color: #59564D;
+$font-color: #59564d;
 $font-weight: 600;
 
 .header {
@@ -14,14 +14,15 @@ $font-weight: 600;
     color: $font-color;
   }
   &__input {
-    margin-right: 5px;
+    background-color: #fefbf1;
     box-sizing: border-box;
-    padding: 0 12px;
+    padding: 0 15px;
     width: 200px;
     height: 35px;
-    border-radius: 10px;
-    border: 1px solid $blue-color;
-    font-style: italic;
+    border-radius: 9px;
+    border: 1px solid #f1ebd5;
+    font-weight: $font-weight;
+    color: #59564d;
   }
   &__icon {
     width: 20px;
