@@ -3,8 +3,8 @@ import React, { FC } from "react";
 import styles from "./MainCard.module.scss";
 import { MainData, UnitsType } from "../../../@types/types";
 import { useTranslation } from "react-i18next";
-import catsImg from "../../../assets/kittens_2_png/file_125700562.png";
-import { IconType, getWeatherIcon } from "../../../utils/getWeatherIcon";
+import { IconType } from "../../../@types/IconType";
+import { getCatsImg } from "../../../utils/getCatsImg";
 
 interface MainCardProps {
   name: string;
@@ -29,7 +29,7 @@ export const MainCard: FC<MainCardProps> = ({ name, main,icon, units }) => {
         </p>
       </div>
       <div className={styles.imageContainer}>
-        <img className={styles.image} src={getWeatherIcon(icon)} alt="" />
+        <img className={styles.image} src={getCatsImg(icon)} alt="" />
       </div>
     </div>
   );

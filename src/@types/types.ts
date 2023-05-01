@@ -1,4 +1,4 @@
-import { IconType } from "../utils/getWeatherIcon";
+import { IconType } from "./IconType";
 
 export interface WeatherData {
   id?: number;

@@ -16,18 +16,21 @@
     display: flex;
     align-items: center;
     .temperature {
-      font-size: 50px;
-      margin-right: 15px;
+      font-size: 65px;
     }
+  }
+  .city{
+    font-size: x-large;
   }
   .feelsLike {
     font-weight: $font-weight;
+    font-size: large;
   }
   .imageContainer {
-    height: 200px;
-    width: 200px;
+    width: 250px;
+    align-self: flex-end;
     .image {
-      width: 200px;
+      width: 250px;
     }
   }
 }
