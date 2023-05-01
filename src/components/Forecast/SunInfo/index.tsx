@@ -8,15 +8,14 @@ import { useTranslation } from "react-i18next";
 import { SysData } from "../../../@types/types";
 
 type SunStateProps = {
-  sys: SysData;
-};
+  sys: SysData 
+}
 
 export const SunInfo: FC<SunStateProps> = ({ sys }) => {
   const { t } = useTranslation();
 
-  const sunriseTime = sunTimeFormat(sys.sunrise);
+  const sunriseTime =  sunTimeFormat(sys.sunrise) 
   const sunsetTime = sunTimeFormat(sys.sunset);
-
   return (
     <div className={styles.sunInfo}>
       <div className={styles.sunInfo__title}>{t("Sunrise & Sunset")}</div>

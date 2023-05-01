@@ -10,6 +10,8 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
     const humidity = curr.main.humidity;
     const pressure = curr.main.pressure;
     const dt_txt = curr.dt_txt;
+    const sunrice = null;
+    const sunset = null;
     const icon = curr.weather[0].icon;
     if (!acc[date]) {
       acc[date] = {
@@ -22,6 +24,8 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
         totalPressure: pressure,
         dt_txt: dt_txt,
         icon: icon || "01d",
+        sunrise: sunrice,
+        sunset: sunset,
         count: 1,
       };
     } else {
@@ -55,7 +59,7 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
       dt_txt,
       count,
     } = dailyForecast[date];
-    
+
     const iconObj = data.find(
       (d) =>
         moment(d.dt_txt).format("ddd, D MMM, HH:mm") ===
@@ -76,9 +80,15 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
       wind: {
         speed: Math.round(totalWindSpeed / count),
       },
-      weather: [{
-        icon: icon,
-      }],
+      weather: [
+        {
+          icon: icon,
+        },
+      ],
+      sys: {
+        sunrise: null,
+        sunset: null,
+      },
       dt_txt: dt_txt,
     };
   });

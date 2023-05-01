@@ -43,31 +43,28 @@ export const Forecast: FC<ForecastProps> = ({
     const filterWeather = getDailyForecastData(data).filter((item) =>
       dateFormat(item.dt_txt).includes(dateFormat(date))
     );
-    console.log(filterWeather[0], 'filtered ')
     setDayWeather(
       index === 0
         ? weatherData
         : {
             ...filterWeather[0],
             name: weatherData.name,
-            // weather: [{ icon: weatherData.weather[0].icon }],
           }
     );
   };
-
   return (
     <div className="forecast">
       <Tabs weather={data} selectDay={selectDay} handleClick={handleClick} />
       <div className="weather-container">
         <HourlyWeather weather={hourlyWeather} />
-        {dayWeather.sys && <SunInfo sys={dayWeather.sys} />}
+        {dayWeather.sys !== undefined && <SunInfo sys={dayWeather.sys} />}{" "}
         <MainCard
           name={dayWeather.name}
           main={dayWeather.main}
           icon={dayWeather.weather[0].icon}
           units={units}
         />
-        <InfoCards wind={dayWeather.wind} main={dayWeather.main}  />
+        <InfoCards wind={dayWeather.wind} main={dayWeather.main} />
       </div>
     </div>
   );

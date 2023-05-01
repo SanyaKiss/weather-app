@@ -17,8 +17,8 @@ export interface MainData {
 }
 
 export interface SysData {
-  sunrise: number;
-  sunset: number;
+  sunrise: number|null;
+  sunset: number|null
 }
 
 export interface WindData {
@@ -55,6 +55,8 @@ export interface DailyForecast {
     totalPressure: number;
     dt_txt: number;
     icon: IconType;
+    sunrise: null;
+    sunset: null;
     count: 1;
   };
 }
