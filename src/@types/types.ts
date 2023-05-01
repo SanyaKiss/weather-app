@@ -2,7 +2,7 @@ import { IconType } from "../utils/getWeatherIcon";
 
 export interface WeatherData {
     id?: number;
-    main: string;
+    main?: string;
     description?: string;
     icon: IconType;
   }
@@ -26,7 +26,7 @@ export interface WeatherData {
   }
   
   export interface WeatherApiResponse {
-    weather?: WeatherData[];
+    weather: WeatherData[];
     main: MainData;
     sys?: SysData;
     wind: WindData;
@@ -55,6 +55,7 @@ export interface WeatherData {
       totalHumidity: number;
       totalPressure: number;
       dt_txt:number;
+      icon:IconType;
       count: 1;
     };
   }

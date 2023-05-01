@@ -9,7 +9,8 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
     const windSpeed = Math.round(curr.wind.speed);
     const humidity = curr.main.humidity;
     const pressure = curr.main.pressure;
-    const dt_txt = curr.dt_txt
+    const dt_txt = curr.dt_txt;
+    const icon = curr.weather[0].icon;
     if (!acc[date]) {
       acc[date] = {
         minTemperature: temperature,
@@ -19,7 +20,8 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
         totalWindSpeed: windSpeed,
         totalHumidity: humidity,
         totalPressure: pressure,
-        dt_txt:dt_txt,
+        dt_txt: dt_txt,
+        icon: icon || "01d",
         count: 1,
       };
     } else {
@@ -53,6 +55,15 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
       dt_txt,
       count,
     } = dailyForecast[date];
+    
+    const iconObj = data.find(
+      (d) =>
+        moment(d.dt_txt).format("ddd, D MMM, HH:mm") ===
+        moment(dt_txt).format("ddd, D MMM, 12:00")
+    );
+
+    const icon = iconObj ? iconObj.weather[0].icon : "01d";
+
     return {
       main: {
         temp: Math.round(totalTemperature / count),
@@ -65,7 +76,10 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
       wind: {
         speed: Math.round(totalWindSpeed / count),
       },
-      dt_txt:dt_txt
+      weather: {
+        icon: icon,
+      },
+      dt_txt: dt_txt,
     };
   });
   return dailyTemperature;

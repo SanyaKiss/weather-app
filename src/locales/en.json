@@ -5,11 +5,18 @@
   "Sunrise": "Sunrise",
   "Sunset": "Sunset",
   "Wind": "Wind",
-  "Humidity": "humidity",
-  "Pressure": "pressure",
+  "Humidity": "Humidity",
+  "Pressure": "Pressure",
   "M/sec": "M/sec",
   "%": "%",
   "hPa": "hPa",
   "NotFound":" Сity ​​not found",
-  "Back":"Back"
+  "Back":"Back",
+  "Mon": "Mon",
+  "Tue": "Tue",
+  "Wed": "Wed",
+  "Thu": "Thu",
+  "Fri": "Fri",
+  "Sat": "Sat",
+  "Sun": "Sun"
 }

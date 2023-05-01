@@ -3,7 +3,6 @@ import React, { FC } from "react";
 import styles from "./HourlyWeather.module.scss";
 import { WeatherApiResponse } from "../../../@types/types";
 import { hourlyFormat } from "../../../utils/dateFormatter";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getWeatherIcon } from "../../../utils/getWeatherIcon";
 
 type HourlyWeatherProps = {

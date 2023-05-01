@@ -35,7 +35,7 @@ export const Forecast: FC<ForecastProps> = ({ forecastData, weatherData }) => {
       dateFormat(item.dt_txt).includes(dateFormat(date))
     );
 
-    setDayWeather(index === 0 ? weatherData : {...filterWeather[0], name: weatherData.name});
+    setDayWeather(index === 0 ? weatherData : {...filterWeather[0], name: weatherData.name, weather: [{icon: weatherData.weather?.[0].icon}]});
   };
 
   return (
