@@ -14,14 +14,14 @@ export const HourlyWeather: FC<HourlyWeatherProps> = ({ weather }) => {
     <div className={styles.hourlyContainer}>
       <table >
         {weather.map((item) => (
-          <td className={styles.hourItem}>
-              <tr
+          <tr className={styles.hourItem}>
+              <td
                 className={styles.hourItem__time}
                 style={{ backgroundColor: "#f9b891" }}
               >
                 {hourlyFormat(item.dt_txt)}
-              </tr>
-              <tr>
+              </td>
+              <td>
                 {item.weather && (
                   <img
                     src={getWeatherIcon(item.weather[0].icon)}
@@ -29,11 +29,11 @@ export const HourlyWeather: FC<HourlyWeatherProps> = ({ weather }) => {
                     className={styles.hourItem__icon}
                   />
                 )}
-              </tr>
-              <tr className={styles.hourItem__temperature}>
+              </td>
+              <td className={styles.hourItem__temperature}>
                 {Math.round(item.main.temp)}&deg;
-              </tr>
-          </td>
+              </td>
+          </tr>
         ))}
       </table>   </div>
   );

@@ -2,7 +2,7 @@
 
 .hourlyContainer {
   color: $font-color;
-  width:100%;
+  width: 100%;
   .hourItem {
     &__time {
       font-weight: bold;
@@ -11,6 +11,7 @@
     &__icon {
       width: 40px;
       height: 40px;
+      margin-top: 5px;
     }
     &__temperature {
       font-weight: bold;
@@ -20,13 +21,18 @@
   table {
     border-collapse: collapse;
     width: 100%;
-
-   }
+    writing-mode: vertical-rl;
+  }
   td {
+    writing-mode: horizontal-tb;
     text-align: center;
+    
+    &:first-child {      
+      border-right: 3px solid #FFBC94;
+      padding: 5px 5px;
+    }
   }
   tr {
-    ;
+
   }
-  
 }
