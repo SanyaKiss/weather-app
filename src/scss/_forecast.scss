@@ -1,16 +1,7 @@
-// $green-color: #cde9d6;
-// $blue-color: #d2e4fd;
-// $yellow-color: #fff1cb;
-// $pink-color: #f8d3cf;
-// $font-color: #619df0;
-// $font-weight: 600;
-
 .forecast {
-  position: relative;
-  
   .weather-container {
     box-sizing: border-box;
-    max-width: 645px;
+    max-width: 100%;
     border: 1px solid #e2d3a6;
     border-top: none; 
     background: #FEF5DA;

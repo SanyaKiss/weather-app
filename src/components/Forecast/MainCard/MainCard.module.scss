@@ -1,6 +1,7 @@
 @use "../../../scss/styles.scss" as *;
 
 .main {
+  position: relative;
   box-sizing: border-box;
   max-width: 70%;
   height: 70%;

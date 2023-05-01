@@ -1,18 +1,20 @@
 import React, { FC } from "react";
 //@ts-ignore
 import styles from "./MainCard.module.scss";
-import { MainData, UnitsType } from "../../../@types/types";
+import { MainData, SysData, UnitsType } from "../../../@types/types";
 import { useTranslation } from "react-i18next";
 import { IconType } from "../../../@types/IconType";
 import { getCatsImg } from "../../../utils/getCatsImg";
+import { SunInfo } from "../SunInfo";
 
 interface MainCardProps {
   name: string;
   main: MainData;
   icon:IconType;
+  sys:SysData;
   units: UnitsType
 }
-export const MainCard: FC<MainCardProps> = ({ name, main,icon, units }) => {
+export const MainCard: FC<MainCardProps> = ({ name, main,icon, sys, units }) => {
   const { t } = useTranslation();  
   const unitSymbol = units === "metric" ? "C" : "F";
   return (
@@ -31,6 +33,7 @@ export const MainCard: FC<MainCardProps> = ({ name, main,icon, units }) => {
       <div className={styles.imageContainer}>
         <img className={styles.image} src={getCatsImg(icon)} alt="" />
       </div>
+      {sys !== undefined && <SunInfo sys={sys} />}
     </div>
   );
 };

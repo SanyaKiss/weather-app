@@ -57,13 +57,13 @@ export const Forecast: FC<ForecastProps> = ({
       <Tabs weather={data} selectDay={selectDay} handleClick={handleClick} />
       <div className="weather-container">
         <HourlyWeather weather={hourlyWeather} />
-        {dayWeather.sys !== undefined && <SunInfo sys={dayWeather.sys} />}{" "}
-        <MainCard
+        {dayWeather.sys !== undefined &&  <MainCard
+          sys={dayWeather.sys}
           name={dayWeather.name}
           main={dayWeather.main}
           icon={dayWeather.weather[0].icon}
           units={units}
-        />
+        />}
         <InfoCards wind={dayWeather.wind} main={dayWeather.main} />
       </div>
     </div>
