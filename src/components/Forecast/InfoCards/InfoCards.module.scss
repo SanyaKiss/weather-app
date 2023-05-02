@@ -1,48 +1,63 @@
 @use "../../../scss/styles.scss" as *;
 
 .cardsContainer {
-  display: flex ;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 160px;
   width: 160px;
   min-width: 120px;
-   .card {
-      box-sizing: border-box;
-      padding: 15px;
-      background: #B4D78B;
-      color: #495738;
-      border-radius: 24px;
-      min-height: 30%;
-      height: 30%;
-      width: 100%;
+  .card {
+    box-sizing: border-box;
+    padding: 15px;
+    background: #b4d78b;
+    color: #495738;
+    border-radius: 24px;
+    // min-height: 30%;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &__textBlock {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
+    }
+    &__title {
+      font-size: smaller;
+    }
+    &__value {
+      font-size: large;
+      font-weight: $font-weight;
+      color: $font-color;
+    }
+    &__icon {
+      max-width: 45px;
+      height: 45px;
+    }
+  }
+}
 
-      &__textBlock {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      &__title {
-        font-size: smaller;
-      }
-      &__value {
-        font-size: large;
-        font-weight: $font-weight;
-        color:$font-color;
-      }
+@media (min-width: 411px) and (max-width: 575px) {
+  .cardsContainer {
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    // flex-wrap: wrap;
+    .card {
+      height: 110px;
+    }
+  }
+}
+
+@media (max-width: 411px) {
+  .cardsContainer {
+    flex-wrap: wrap;
+    .card {
       &__icon {
-        max-width: 45px;
-        height: 45px;
+        max-width: 64px;
+        height: 64px;
       }
     }
   }
-
-  @media (max-width: 575px) {
-    .cardsContainer {
-      flex-direction: row;
-      width: 100%;
-    }
-  }
-  
+}

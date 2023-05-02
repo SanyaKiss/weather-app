@@ -17,6 +17,7 @@
     display: flex;
     margin-top: 5px;
     justify-content: space-between;
+    max-height: 200px;
     &__item {
       display: flex;
     }
@@ -48,8 +49,8 @@
 @media (max-width: 575px) {
   .sunInfo{
     box-sizing: border-box;
-    width: 90%;
-    padding: 15px 30px;
+    width: 50%;
+    padding: 15px 35px;
 
     &__title {
       font-weight: $font-weight;

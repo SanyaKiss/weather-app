@@ -1,10 +1,9 @@
 @use "../../../scss/styles.scss" as *;
 
 .mainCard {
+  min-height: 370px;
   position: relative;
   box-sizing: border-box;
-  min-width: 70%;
-  max-width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -28,35 +27,25 @@
     font-weight: $font-weight;
     font-size: large;
   }
-  // .imageContainer {
-  //   max-width: 250px;
-  //   align-self: flex-end;
-
-  //   .image {
-  //     width: 100%;
-  //   }
-  // }
 }
 
 @media (max-width: 575px) {
-  .imageContainer {
-    max-width: 140px;
-    align-self: flex-start;
-    .image {
-      max-width: 100%;
+  .mainCard {
+    width: 100%;
+    min-height:370px;
+    .imageContainer {
+      max-width: 250px;
+      align-self: flex-start;
+      .image {
+        max-width: 100%;
+      }
     }
-  }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-  .imageContainer {
-    max-width: 50%;
-    align-self: flex-start;
-    .image {
-      max-width: 100%;
+    .temperatureIcon {
+      .temperature {
+        font-size: 50px;
+      }
     }
-  }
-
+    }
 }
 
 @media (min-width: 576px) {
@@ -70,16 +59,3 @@
   }
 }
 
-/* Стили для экранов шириной от 992px и больше */
-@media (min-width: 992px) {
-  // .imageContainer {
-  //   max-width: 250px;
-  //   align-self: flex-end;
-
-  //   .image {
-  //     width: 100%;
-  //   }
-  // }
-
-  /* Заданные стили */
-}

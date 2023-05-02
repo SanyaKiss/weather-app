@@ -3,20 +3,18 @@
   .weather-container {
     box-sizing: border-box;
     border: 1px solid #e2d3a6;
-    border-top: none; 
-    background: #FEF5DA;
+    border-top: none;
+    background: #fef5da;
     max-width: 100%;
-    // min-height: 550px;
-    height: 550px;
     padding: 10px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
+    gap: 25px;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    .weather-cards{
+    .weather-cards {
       width: 100%;
       height: 75%;
       display: flex;
@@ -29,9 +27,11 @@
 @media (max-width: 575px) {
   .forecast {
     .weather-container {
-      .weather-cards{
-        flex-wrap: wrap;
+      min-width: 70%;
+      .weather-cards {
+        flex-direction: column;
+        align-items: center;
       }
     }
   }
-  }
+}
