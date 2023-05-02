@@ -1,6 +1,6 @@
 .main{
   margin: 0 auto;
-  max-width: 37%;
+  width: 650px;
 }
 .button {
   background-color: #c8d3ba;
@@ -17,3 +17,33 @@
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   }
 }
+
+@media (min-width: 320px) and (max-width: 575px) {
+  .main {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* Стили для экранов шириной от 768px до 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Заданные стили */
+}
+
+/* Стили для экранов шириной от 992px и больше */
+@media (min-width: 992px) {
+  /* Заданные стили */
+}
+
+// @media (max-width: 768px) {
+//   .main {
+//     width: 100%;
+//     min-width: auto;
+//   }
+// }
+
+// @media (max-width: 576px) {
+//   .main {
+//     width: 100%;
+//   }
+// }

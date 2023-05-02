@@ -1,10 +1,10 @@
 @use "../../../scss/styles.scss" as *;
 
-.main {
+.mainCard {
   position: relative;
   box-sizing: border-box;
-  max-width: 70%;
-  height: 70%;
+  min-width: 70%;
+  max-width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -21,18 +21,65 @@
       max-width: 150px;
     }
   }
-  .city{
+  .city {
     font-size: x-large;
   }
   .feelsLike {
     font-weight: $font-weight;
     font-size: large;
   }
+  // .imageContainer {
+  //   max-width: 250px;
+  //   align-self: flex-end;
+
+  //   .image {
+  //     width: 100%;
+  //   }
+  // }
+}
+
+@media (max-width: 575px) {
   .imageContainer {
-    max-width: 250px;
-    align-self: flex-end;
+    max-width: 140px;
+    align-self: flex-start;
     .image {
-      max-width: 250px;
+      max-width: 100%;
     }
   }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .imageContainer {
+    max-width: 50%;
+    align-self: flex-start;
+    .image {
+      max-width: 100%;
+    }
+  }
+
+}
+
+@media (min-width: 576px) {
+  .imageContainer {
+    max-width: 250px;
+    align-self: center;
+
+    .image {
+      width: 100%;
+    }
+  }
+}
+
+/* Стили для экранов шириной от 992px и больше */
+@media (min-width: 992px) {
+  // .imageContainer {
+  //   max-width: 250px;
+  //   align-self: flex-end;
+
+  //   .image {
+  //     width: 100%;
+  //   }
+  // }
+
+  /* Заданные стили */
 }

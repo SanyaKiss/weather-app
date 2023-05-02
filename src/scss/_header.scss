@@ -9,9 +9,15 @@ $font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding-bottom: 40px;
   &__date {
     color: $font-color;
+  }
+  &__buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   &__input {
     background-color: #fefbf1;
@@ -23,6 +29,8 @@ $font-weight: 600;
     border: 1px solid #f1ebd5;
     font-weight: $font-weight;
     color: #59564d;
+    flex-grow: 1;
+
   }
   &__icon {
     max-width: 20px;

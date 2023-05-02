@@ -3,6 +3,21 @@
 .hourlyContainer {
   color: $font-color;
   width: 100%;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #FEF5DA;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #f1e6c4;
+    border: 2px solid #FEF5DA;
+    border-radius: 40px;
+    &:hover{
+      box-shadow:0px 0px 5px rgba(121, 121, 121, 0.342);
+    }
+  }
   .hourItem {
     &__time {
       font-weight: bold;

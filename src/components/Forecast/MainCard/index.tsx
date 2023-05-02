@@ -18,7 +18,7 @@ export const MainCard: FC<MainCardProps> = ({ name, main,icon, sys, units }) => 
   const { t } = useTranslation();  
   const unitSymbol = units === "metric" ? "C" : "F";
   return (
-    <div className={styles.main}>
+    <div className={styles.mainCard}>
       <div>
         <h2 className={styles.city}>{name}</h2>
         <div className={styles.temperatureIcon}>

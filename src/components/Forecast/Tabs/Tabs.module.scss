@@ -8,23 +8,22 @@
     height: 10px;
   }
   &::-webkit-scrollbar-track {
-    background-color: #f0e0b1;
+    background-color: #FEF5DA;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #ffefbe;
-    border: 1px solid #e2d3a6;
+    background-color: #f1e6c4;
+    border: 2px solid #FEF5DA;
     border-radius: 40px;
     &:hover{
       box-shadow:0px 0px 5px rgba(121, 121, 121, 0.342);
     }
   }
 
-  //thumb
   .tabItem {
     box-sizing: border-box;
     padding: 15px;
     height: 140px;
-    width: 95px;
+    min-width: 95px;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     display: flex;

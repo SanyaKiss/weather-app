@@ -38,3 +38,26 @@
     }
   }
 }
+
+// @media (max-width: 575px) { 
+//   .sunInfo{
+//     width: 80%;
+//   }
+// }
+
+@media (max-width: 575px) {
+  .sunInfo{
+    box-sizing: border-box;
+    width: 90%;
+    padding: 15px 30px;
+
+    &__title {
+      font-weight: $font-weight;
+      text-align: center;
+    }
+
+    .sunriseSunset {
+      // justify-content: space-around;
+  }
+}
+}
