@@ -6,7 +6,6 @@ export const getCurrentWeather = async (
   city: string,
   units:string
 ): Promise<WeatherApiResponse | undefined> => {
-  console.log(units, 'units from fetch')
   try {
     const response = await axios.get<WeatherApiResponse>(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`

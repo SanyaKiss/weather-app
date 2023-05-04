@@ -1,15 +1,10 @@
 import moment from "moment";
 import React, { FC, useEffect, useState } from "react";
 import i18n from "../18n";
-import { UnitsType } from "../@types/types";
+import { useWeatherData } from "../context/WeatherProvider";
 
-type HeaderProps = {
-  cityChange: (city: string) => void;
-  unitsChange: () => void;
-  units: UnitsType;
-};
-
-export const Header: FC<HeaderProps> = ({ cityChange, unitsChange, units }) => {
+export const Header: FC = () => {
+  const { units, setUnits, setCurrentCity } = useWeatherData();
   const [language, setLanguage] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
 
@@ -22,39 +17,44 @@ export const Header: FC<HeaderProps> = ({ cityChange, unitsChange, units }) => {
   const handleLanguageChange = () => {
     setLanguage((prev) => !prev);
   };
+  const handleUnitsChange = () => {
+    setUnits(units === "metric" ? "imperial" : "metric");
+  };
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    cityChange(search);
+    setCurrentCity(search);
     setSearch("");
   };
+
+  const currentLang = language ? "укр" : "en";
+  const currentUnits = units === "metric" ? "°C" : "°F";
 
   return (
     <header className="header">
       <h1 className="header__date">{currentDate}</h1>
-        <form
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
-        >
-          <input
-            className="header__input"
-            type="text"
-            placeholder="Enter city..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </form>
-        <div className="header__buttons">
-
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
+        <input
+          className="header__input"
+          type="text"
+          placeholder="Enter city..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </form>
+      <div className="header__buttons">
         <button
           className="header__button button"
           onClick={handleLanguageChange}
         >
-          {language ? "укр" : "en"}
+          {currentLang}
         </button>
-        <button className="header__button button" onClick={unitsChange}>
-          {units === "metric" ? "°C" : "°F"}
+        <button className="header__button button" onClick={handleUnitsChange}>
+          {currentUnits}
         </button>
       </div>
     </header>

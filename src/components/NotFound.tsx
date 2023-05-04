@@ -1,20 +1,21 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
+import { useWeatherData } from "../context/WeatherProvider";
 
-interface CityNotFoundProps {
-  cityName: string;
-  onBackClick: () => void;
-}
-
-export const NotFound: FC<CityNotFoundProps> = ({ cityName, onBackClick }) => {
+export const NotFound: FC = () => {
+  const { currentCity, setCurrentCity } = useWeatherData();
   const { t } = useTranslation();
+
+  const handleBackClick = () => {
+    setCurrentCity("Kyiv");
+  };
 
   return (
     <div>
       <h2>
-        {t("NotFound")} "{cityName}"
+        {t("NotFound")} "{currentCity}"
       </h2>
-      <button className="button" onClick={onBackClick}>
+      <button className="button" onClick={handleBackClick}>
         {t("Back")}
       </button>
     </div>
