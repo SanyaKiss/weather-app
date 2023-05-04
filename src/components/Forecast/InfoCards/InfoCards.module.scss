@@ -2,38 +2,35 @@
 
 .cardsContainer {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  width: 160px;
+  width: 100%;
   min-width: 120px;
   .card {
+    display: grid;
+    grid-template-areas: "title image" "value image";
     box-sizing: border-box;
     padding: 15px;
     background: #b4d78b;
     color: #495738;
     border-radius: 24px;
-    // min-height: 30%;
-    height: 30%;
+    height: 96px;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    &__textBlock {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+    min-height: 96px;
     &__title {
-      font-size: smaller;
+      grid-area: title;
     }
     &__value {
+      grid-area: value;
       font-size: large;
       font-weight: $font-weight;
       color: $font-color;
+      align-self: start;
     }
     &__icon {
-      max-width: 45px;
-      height: 45px;
+      grid-area: image;
+      place-self: center;
+      width: 54px;
+      height: 54px;
     }
   }
 }
@@ -41,22 +38,39 @@
 @media (min-width: 411px) and (max-width: 575px) {
   .cardsContainer {
     flex-direction: row;
-    gap: 15px;
-    width: 100%;
-    // flex-wrap: wrap;
     .card {
       height: 110px;
+      &__icon {
+        grid-area: image;
+        place-self: start;
+        width: 42px;
+        height: 42px;
+      }
     }
   }
 }
 
 @media (max-width: 411px) {
   .cardsContainer {
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
     .card {
+      grid-template-areas: "title image" "value value";
+
+      width: 100%;
+      &__title {
+        font-size: small;
+        align-self: center;
+      }
+      &__value {
+        width: 100%;
+        font-size: medium;
+      }
       &__icon {
-        max-width: 64px;
-        height: 64px;
+        align-self: start;
+        width: 24px;
+        height: 24px;
       }
     }
   }

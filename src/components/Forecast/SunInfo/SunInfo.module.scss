@@ -5,11 +5,9 @@
   background-color: #fac09a;
   color: #664938;
   border-radius: 24px;
-  padding: 15px;
+  padding: 16px;
   align-self: flex-end;
   position: absolute;
-  left: 5%;
-  bottom: 5%;
   &__title {
     font-weight: $font-weight;
   }
@@ -40,25 +38,19 @@
   }
 }
 
-// @media (max-width: 575px) { 
-//   .sunInfo{
-//     width: 80%;
-//   }
-// }
-
-@media (max-width: 575px) {
-  .sunInfo{
+@media (max-width: 524px) {
+  .sunInfo {
     box-sizing: border-box;
-    width: 50%;
+    width: calc(100% - 50px);
     padding: 15px 35px;
+
+    .sunriseSunset {
+      justify-content: space-around;
+    }
 
     &__title {
       font-weight: $font-weight;
       text-align: center;
     }
-
-    .sunriseSunset {
-      // justify-content: space-around;
   }
-}
 }

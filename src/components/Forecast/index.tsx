@@ -62,3 +62,4 @@ export const Forecast: FC = () => {
     </div>
   );
 };
+export * from './Forecast';
