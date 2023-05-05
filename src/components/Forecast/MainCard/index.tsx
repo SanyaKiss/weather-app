@@ -1,22 +1,19 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 //@ts-ignore
-import styles from "./MainCard.module.scss";
-import { MainData, SysData, UnitsType } from "../../../@types/types";
-import { useTranslation } from "react-i18next";
-import { IconType } from "../../../@types/IconType";
-import { getCatsImg } from "../../../utils/getCatsImg";
-import { SunInfo } from "../SunInfo";
+import styles from './MainCard.module.scss'
+import { useTranslation } from 'react-i18next'
+import { getCatsImg } from '../../../utils/getCatsImg'
+import { SunInfo } from '../SunInfo'
+import { useWeatherData } from '../../../context/WeatherProvider'
 
-interface MainCardProps {
-  name: string;
-  main: MainData;
-  icon:IconType;
-  sys:SysData;
-  units: UnitsType
-}
-export const MainCard: FC<MainCardProps> = ({ name, main,icon, sys, units }) => {
-  const { t } = useTranslation();  
-  const unitSymbol = units === "metric" ? "C" : "F";
+export const MainCard: FC = () => {
+  const { units, selectWeather } = useWeatherData()
+
+  const { name, main, weather, sys } = selectWeather!
+  const { t } = useTranslation()
+
+  const unitSymbol = units === 'metric' ? 'C' : 'F'
+
   return (
     <div className={styles.mainCard}>
       <div>
@@ -27,13 +24,13 @@ export const MainCard: FC<MainCardProps> = ({ name, main,icon, sys, units }) => 
           </h1>
         </div>
         <p className={styles.feelsLike}>
-          {t("Feels like")} {Math.round(main?.feels_like)}&deg;
+          {t('Feels like')} {Math.round(main?.feels_like)}&deg;
         </p>
       </div>
       <div className={styles.imageContainer}>
-        <img className={styles.image} src={getCatsImg(icon)} alt="" />
+        <img className={styles.image} src={getCatsImg(weather[0].icon)} alt="" />
       </div>
-      {sys !== undefined && <SunInfo sys={sys} />}
+      <SunInfo />
     </div>
-  );
-};
+  )
+}

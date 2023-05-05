@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss" as *;
+@use '../../../scss/styles.scss' as *;
 
 .mainCard {
   min-height: 370px;
@@ -32,7 +32,7 @@
 @media (max-width: 575px) {
   .mainCard {
     width: 100%;
-    min-height:370px;
+    min-height: 370px;
     .imageContainer {
       max-width: 250px;
       align-self: flex-start;
@@ -45,7 +45,7 @@
         font-size: 50px;
       }
     }
-    }
+  }
 }
 
 @media (min-width: 576px) {
@@ -58,4 +58,3 @@
     }
   }
 }
-

@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss" as *;
+@use '../../../scss/styles.scss' as *;
 
 .tabs {
   display: flex;
@@ -8,14 +8,14 @@
     height: 10px;
   }
   &::-webkit-scrollbar-track {
-    background-color: #FEF5DA;
+    background-color: #fef5da;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #f1e6c4;
-    border: 2px solid #FEF5DA;
+    border: 2px solid #fef5da;
     border-radius: 40px;
-    &:hover{
-      box-shadow:0px 0px 5px rgba(121, 121, 121, 0.342);
+    &:hover {
+      box-shadow: 0px 0px 5px rgba(121, 121, 121, 0.342);
     }
   }
 
@@ -34,21 +34,13 @@
     color: $font-color;
     border: 1px solid #e2d3a6;
     border-bottom: none;
-    background: linear-gradient(
-      0deg,
-      rgb(250, 236, 194) 0%,
-      rgba(254, 245, 218, 1) 100%
-    );
+    background: linear-gradient(0deg, rgb(250, 236, 194) 0%, rgba(254, 245, 218, 1) 100%);
     &:hover {
       box-shadow: 0px -3px 7px rgba(0, 0, 0, 0.08);
     }
     &.-active {
       box-shadow: 0px -3px 7px rgba(0, 0, 0, 0.08);
-      background: linear-gradient(
-        0deg,
-        rgb(254, 245, 218, 1) 0%,
-        rgba(254, 245, 218, 1) 100%
-      );
+      background: linear-gradient(0deg, rgb(254, 245, 218, 1) 0%, rgba(254, 245, 218, 1) 100%);
     }
     &__icon {
       max-width: 50px;

@@ -1,18 +1,18 @@
-import moment from "moment";
-import { DailyForecast, WeatherApiResponse } from "../@types/types";
+import moment from 'moment'
+import { DailyForecast, WeatherApiResponse } from '../@types/types'
 
 export const getDailyForecastData = (data: WeatherApiResponse[]) => {
   const dailyForecast = data.reduce((acc: DailyForecast, curr) => {
-    const date = moment(curr.dt_txt).format("ddd, D MMM, LT").split(", ")[1];
-    const temperature = Math.round(curr.main.temp);
-    const feelsLike = Math.round(curr.main.feels_like);
-    const windSpeed = Math.round(curr.wind.speed);
-    const humidity = curr.main.humidity;
-    const pressure = curr.main.pressure;
-    const dt_txt = curr.dt_txt;
-    const sunrice = null;
-    const sunset = null;
-    const icon = curr.weather[0].icon;
+    const date = moment(curr.dt_txt).format('ddd, D MMM, LT').split(', ')[1]
+    const temperature = Math.round(curr.main.temp)
+    const feelsLike = Math.round(curr.main.feels_like)
+    const windSpeed = Math.round(curr.wind.speed)
+    const humidity = curr.main.humidity
+    const pressure = curr.main.pressure
+    const dt_txt = curr.dt_txt
+    const sunrice = null
+    const sunset = null
+    const icon = curr.weather[0].icon
     if (!acc[date]) {
       acc[date] = {
         minTemperature: temperature,
@@ -23,29 +23,23 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
         totalHumidity: humidity,
         totalPressure: pressure,
         dt_txt: dt_txt,
-        icon: icon || "01d",
+        icon: icon || '01d',
         sunrise: sunrice,
         sunset: sunset,
         count: 1,
-      };
+      }
     } else {
-      acc[date].minTemperature = Math.min(
-        acc[date].minTemperature,
-        temperature
-      );
-      acc[date].maxTemperature = Math.max(
-        acc[date].maxTemperature,
-        temperature
-      );
-      acc[date].totalTemperature += temperature;
-      acc[date].totalFeelsLike += feelsLike;
-      acc[date].totalWindSpeed += windSpeed;
-      acc[date].totalHumidity += humidity;
-      acc[date].totalPressure += pressure;
-      acc[date].count++;
+      acc[date].minTemperature = Math.min(acc[date].minTemperature, temperature)
+      acc[date].maxTemperature = Math.max(acc[date].maxTemperature, temperature)
+      acc[date].totalTemperature += temperature
+      acc[date].totalFeelsLike += feelsLike
+      acc[date].totalWindSpeed += windSpeed
+      acc[date].totalHumidity += humidity
+      acc[date].totalPressure += pressure
+      acc[date].count++
     }
-    return acc;
-  }, {});
+    return acc
+  }, {})
 
   const dailyTemperature = Object.keys(dailyForecast).map((date) => {
     const {
@@ -58,15 +52,13 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
       totalPressure,
       dt_txt,
       count,
-    } = dailyForecast[date];
+    } = dailyForecast[date]
 
     const iconObj = data.find(
-      (d) =>
-        moment(d.dt_txt).format("ddd, D MMM, HH:mm") ===
-        moment(dt_txt).format("ddd, D MMM, 12:00")
-    );
+      (d) => moment(d.dt_txt).format('ddd, D MMM, HH:mm') === moment(dt_txt).format('ddd, D MMM, 12:00')
+    )
 
-    const icon = iconObj ? iconObj.weather[0].icon : "01d";
+    const icon = iconObj ? iconObj.weather[0].icon : '01d'
 
     return {
       main: {
@@ -90,7 +82,7 @@ export const getDailyForecastData = (data: WeatherApiResponse[]) => {
         sunset: null,
       },
       dt_txt: dt_txt,
-    };
-  });
-  return dailyTemperature;
-};
+    }
+  })
+  return dailyTemperature
+}

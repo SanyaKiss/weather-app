@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss" as *;
+@use '../../../scss/styles.scss' as *;
 
 .hourlyContainer {
   color: $font-color;
@@ -8,14 +8,14 @@
     height: 10px;
   }
   &::-webkit-scrollbar-track {
-    background-color: #FEF5DA;
+    background-color: #fef5da;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #f1e6c4;
-    border: 2px solid #FEF5DA;
+    border: 2px solid #fef5da;
     border-radius: 40px;
-    &:hover{
-      box-shadow:0px 0px 5px rgba(121, 121, 121, 0.342);
+    &:hover {
+      box-shadow: 0px 0px 5px rgba(121, 121, 121, 0.342);
     }
   }
   table {
@@ -26,8 +26,8 @@
   }
   td {
     text-align: center;
-    &:first-child {      
-      border-right: 3px solid #FFBC94;
+    &:first-child {
+      border-right: 3px solid #ffbc94;
       padding: 5px 5px;
     }
   }
@@ -37,7 +37,7 @@
     flex-direction: column;
     width: 100%;
     min-width: 96px;
-   
+
     &__time {
       font-weight: bold;
       text-align: center;

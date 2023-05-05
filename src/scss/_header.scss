@@ -14,7 +14,7 @@ $font-weight: 600;
   &__date {
     color: $font-color;
   }
-  &__buttons{
+  &__buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,7 +30,6 @@ $font-weight: 600;
     font-weight: $font-weight;
     color: #59564d;
     flex-grow: 1;
-
   }
   &__icon {
     max-width: 20px;

@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss" as *;
+@use '../../../scss/styles.scss' as *;
 
 .cardsContainer {
   display: flex;
@@ -7,7 +7,7 @@
   min-width: 120px;
   .card {
     display: grid;
-    grid-template-areas: "title image" "value image";
+    grid-template-areas: 'title image' 'value image';
     box-sizing: border-box;
     padding: 15px;
     background: #b4d78b;
@@ -56,7 +56,7 @@
     flex-direction: row;
     justify-content: stretch;
     .card {
-      grid-template-areas: "title image" "value value";
+      grid-template-areas: 'title image' 'value value';
 
       width: 100%;
       &__title {

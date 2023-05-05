@@ -1,49 +1,47 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo } from 'react'
 //@ts-ignore
-import styles from "./InfoCards.module.scss";
-import pressureIcon from "../../../assets/weather-icons/pressure.png";
-import humidityIcon from "../../../assets/weather-icons/icons8-hygrometer-64.png";
-import windIcon from "../../../assets/weather-icons/icons8-wind-64.png";
-import { MainData, WindData } from "../../../@types/types";
-import { useTranslation } from "react-i18next";
-
-interface InfoCardsProps {
-  wind: WindData;
-  main: MainData;
-}
+import styles from './InfoCards.module.scss'
+import pressureIcon from '../../../assets/weather-icons/pressure.png'
+import humidityIcon from '../../../assets/weather-icons/icons8-hygrometer-64.png'
+import windIcon from '../../../assets/weather-icons/icons8-wind-64.png'
+import { useTranslation } from 'react-i18next'
+import { useWeatherData } from '../../../context/WeatherProvider'
 
 interface Card {
-  title: string;
-  value: string;
-  iconSrc: string;
-  imgAlt: string;
+  title: string
+  value: string
+  iconSrc: string
+  imgAlt: string
 }
 
-export const InfoCards: FC<InfoCardsProps> = ({ wind, main }) => {
-  const { t } = useTranslation();
+export const InfoCards: FC = () => {
+  const { selectWeather } = useWeatherData()
+  const { wind, main } = selectWeather
+  const { t } = useTranslation()
+
   const cards: Card[] = useMemo(
     () => [
       {
-        title: t("Wind"),
-        value: Math.round(wind.speed) + " " + t("M/sec"),
+        title: t('Wind'),
+        value: Math.round(wind.speed) + ' ' + t('M/sec'),
         iconSrc: windIcon,
-        imgAlt: "",
+        imgAlt: 'wind',
       },
       {
-        title: t("Hudimity"),
-        value: main.pressure + " " + t("hPa"),
+        title: t('Hudimity'),
+        value: main.pressure + ' ' + t('%'),
         iconSrc: humidityIcon,
-        imgAlt: "hudimity",
+        imgAlt: 'hudimity',
       },
       {
-        title: t("Pressure"),
-        value: main.pressure + " " + t("hPa"),
+        title: t('Pressure'),
+        value: main.pressure + ' ' + t('hPa'),
         iconSrc: pressureIcon,
-        imgAlt: "pressure",
+        imgAlt: 'pressure',
       },
     ],
     [main.pressure, t, wind.speed]
-  );
+  )
 
   return (
     <div className={styles.cardsContainer}>
@@ -55,5 +53,5 @@ export const InfoCards: FC<InfoCardsProps> = ({ wind, main }) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}

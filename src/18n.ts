@@ -1,4 +1,4 @@
-import i18n from 'i18next';
+import i18n from 'i18next'
 
 i18n.init({
   lng: 'en',
@@ -10,6 +10,6 @@ i18n.init({
       translation: require('./locales/uk.json'),
     },
   },
-});
+})
 
 export default i18n

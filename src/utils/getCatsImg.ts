@@ -15,27 +15,27 @@ import fog from '../assets/kittens_2_png/458656664/60.png'
 
 import { IconType } from '../@types/IconType'
 
- const weatherIcons = {
-  "01d": day,
-  "01n": night,
-  "02d": cloudDay,
-  "02n": cloudNight,
-  "03d": cloud,
-  "03n": cloud,
-  "04d": cloud4d,
-  "04n": cloud4n,
-  "09d": rain9d,
-  "09n": rain9n,
-  "10d": rain10d,
-  "10n": rain10n,
-  "11d": rain10d,
-  "11n": rain9d,
-  "13d": snowD,
-  "13n": snowN,
-  "50d": fog,
-  "50n": fog,
-};
+const weatherIcons = {
+  '01d': day,
+  '01n': night,
+  '02d': cloudDay,
+  '02n': cloudNight,
+  '03d': cloud,
+  '03n': cloud,
+  '04d': cloud4d,
+  '04n': cloud4n,
+  '09d': rain9d,
+  '09n': rain9n,
+  '10d': rain10d,
+  '10n': rain10n,
+  '11d': rain10d,
+  '11n': rain9d,
+  '13d': snowD,
+  '13n': snowN,
+  '50d': fog,
+  '50n': fog,
+}
 
-export function getCatsImg(weatherCode:IconType) {
-    return weatherIcons[weatherCode] 
-  }
+export function getCatsImg(weatherCode: IconType) {
+  return weatherIcons[weatherCode]
+}
