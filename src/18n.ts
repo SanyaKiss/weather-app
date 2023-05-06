@@ -4,10 +4,10 @@ i18n.init({
   lng: 'en',
   resources: {
     en: {
-      translation: require('./locales/en.json'),
+      translation: import('./locales/en.json'),
     },
     uk: {
-      translation: require('./locales/uk.json'),
+      translation: import('./locales/uk.json'),
     },
   },
 })
