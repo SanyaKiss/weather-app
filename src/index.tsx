@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './scss/styles.scss'
 import { I18nextProvider } from 'react-i18next'
