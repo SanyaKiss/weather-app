@@ -20,9 +20,11 @@
   }
   table {
     border-collapse: collapse;
+    display: flex;
+  }
+  tbody{
     width: 100%;
     max-width: 100%;
-    display: flex;
   }
   td {
     text-align: center;
