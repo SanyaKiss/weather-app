@@ -16,7 +16,7 @@ interface Card {
 
 export const InfoCards: FC = () => {
   const { selectWeather } = useWeatherData()
-  const { wind, main } = selectWeather
+  const { wind, main } = selectWeather!
   const { t } = useTranslation()
 
   const cards: Card[] = useMemo(
