@@ -1,6 +1,7 @@
 @use '../../../scss/styles.scss' as *;
 
 .mainCard {
+  min-width: 70%;
   min-height: 370px;
   position: relative;
   box-sizing: border-box;

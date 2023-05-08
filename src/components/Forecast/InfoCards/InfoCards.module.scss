@@ -2,9 +2,11 @@
 
 .cardsContainer {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
   min-width: 120px;
+  gap: 10px;
   .card {
     display: grid;
     grid-template-areas: 'title image' 'value image';
@@ -15,7 +17,7 @@
     border-radius: 24px;
     height: 96px;
     width: 100%;
-    min-height: 96px;
+    min-height: 30%;
     &__title {
       grid-area: title;
     }
