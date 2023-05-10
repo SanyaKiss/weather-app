@@ -1,17 +1,17 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 //@ts-ignore
 import styles from './MainCard.module.scss'
 import { useTranslation } from 'react-i18next'
 import { getCatsImg } from '../../../utils/getCatsImg'
 import { SunInfo } from '../SunInfo'
 import { useWeatherData } from '../../../context/WeatherProvider'
+import i18n from '../../../18n'
 
 export const MainCard: FC = () => {
   const { units, selectWeather } = useWeatherData()
-
-  const { name, main, weather, sys } = selectWeather!
+  const { name, main, weather } = selectWeather!
   const { t } = useTranslation()
-
+  
   const unitSymbol = units === 'metric' ? 'C' : 'F'
 
   return (

@@ -7,7 +7,6 @@ export const getCurrentWeather = async (
   units: string
 ): Promise<WeatherApiResponse | undefined> => {
   try {
-    console.log(import.meta.env.REACT_APP_API_KEY)
     const response = await axios.get<WeatherApiResponse>(
       // `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.REACT_APP_API_KEY}&units=${units}`
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`

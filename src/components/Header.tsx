@@ -2,20 +2,22 @@ import moment from 'moment'
 import React, { FC, useEffect, useState } from 'react'
 import i18n from '../18n'
 import { useWeatherData } from '../context/WeatherProvider'
+import { t } from 'i18next'
 
 export const Header: FC = () => {
   const { units, setUnits, setCurrentCity } = useWeatherData()
-  const [language, setLanguage] = useState<boolean>(false)
+  const [language, setLanguage] = useState<'uk' | 'en'>('en')
   const [search, setSearch] = useState<string>('')
-
   const currentDate = moment().format('dddd, MMMM DD, YYYY')
 
   useEffect(() => {
-    language ? i18n.changeLanguage('uk') : i18n.changeLanguage('en')
+    console.log('use effect')
+    language === 'uk' ? i18n.changeLanguage('en') : i18n.changeLanguage('uk')
   }, [language])
 
   const handleLanguageChange = () => {
-    setLanguage((prev) => !prev)
+    setLanguage(language === 'en' ? 'uk' : 'en')
+    console.log(language)
   }
   const handleUnitsChange = () => {
     setUnits(units === 'metric' ? 'imperial' : 'metric')
@@ -27,7 +29,6 @@ export const Header: FC = () => {
     setSearch('')
   }
 
-  const currentLang = language ? 'укр' : 'en'
   const currentUnits = units === 'metric' ? '°C' : '°F'
 
   return (
@@ -48,7 +49,7 @@ export const Header: FC = () => {
       </form>
       <div className="header__buttons">
         <button className="header__button button" onClick={handleLanguageChange}>
-          {currentLang}
+          {language}
         </button>
         <button className="header__button button" onClick={handleUnitsChange}>
           {currentUnits}
