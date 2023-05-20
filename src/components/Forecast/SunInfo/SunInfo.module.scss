@@ -1,9 +1,9 @@
-@use '../../../scss/styles.scss' as *;
+@use '../../../scss/\ variables.scss' as *;
 
 .sunInfo {
   width: 170px;
   background-color: #fac09a;
-  color: #664938;
+  color: $font-color-orange;
   border-radius: 24px;
   padding: 16px;
   align-self: flex-end;

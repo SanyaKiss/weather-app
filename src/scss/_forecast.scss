@@ -1,10 +1,12 @@
+@use './\ variables.scss' as *;
+
 .forecast {
   max-width: 100%;
   .weather-container {
     box-sizing: border-box;
     border: 1px solid #e2d3a6;
     border-top: none;
-    background: #fef5da;
+    background: $light-bg-color;
     max-width: 100%;
     padding: 10px;
     border-bottom-left-radius: 20px;

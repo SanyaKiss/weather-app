@@ -3,7 +3,7 @@ import React, { FC, useState } from 'react'
 import styles from './MainCard.module.scss'
 import { useTranslation } from 'react-i18next'
 import { getCatsImg } from '../../../utils/getCatsImg'
-import { SunInfo } from '../SunInfo'
+import { SunInfo } from '../SunInfo/SunInfo'
 import { useWeatherData } from '../../../context/WeatherProvider'
 import i18n from '../../../18n'
 

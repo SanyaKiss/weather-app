@@ -1,20 +1,19 @@
+@use '../scss/\ variables.scss' as *;
+
 .main {
   margin: 0 auto;
   width: 650px;
 }
 .button {
-  background-color: #c8d3ba;
-  color: #59564d;
+  background-color: $green-color;
   padding: 5px 10px;
   border-radius: 5px;
   border: none;
   color: $font-color;
   &:hover {
-    background-color: #c1ceb2;
-
+    background-color: $light-green-color;
   }
   &:active {
-    background-color: #bfcab0;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   }
 }

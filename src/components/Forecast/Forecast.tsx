@@ -1,13 +1,10 @@
-import React, { FC, useState } from 'react'
-import { Tabs } from './Tabs'
-import { HourlyWeather } from './HourlyWeather'
-import { MainCard } from './MainCard'
-import { InfoCards } from './InfoCards'
-import { WeatherApiResponse } from '../../@types/types'
-import { useWeatherData } from '../../context/WeatherProvider'
+import { FC } from 'react'
+import { Tabs } from './Tabs/Tabs'
+import { HourlyWeather } from './HourlyWeather/HourlyWeather'
+import { MainCard } from './MainCard/MainCard'
+import { InfoCards } from './InfoCards/InfoCards'
 
 export const Forecast: FC = () => {
-  const {currentWeather, selectWeather} = useWeatherData()
   return (
     <div className="forecast">
       <Tabs />

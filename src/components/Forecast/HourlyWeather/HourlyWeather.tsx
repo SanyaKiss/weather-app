@@ -14,7 +14,7 @@ export const HourlyWeather: FC = () => {
         {weather?.map((item) => (
           <tbody key={uuidv4()}>
             <tr className={styles.hourItem} key={uuidv4()}>
-              <td className={styles.hourItem__time} style={{ backgroundColor: '#f9b891' }}>
+              <td className={styles.hourItem__time}>
                 {hourlyFormat(item.dt_txt)}
               </td>
               <td>

@@ -1,4 +1,4 @@
-@use '../../../scss/styles.scss' as *;
+@use '../../../scss/\ variables.scss' as *;
 
 .tabs {
   display: flex;
@@ -8,11 +8,11 @@
     height: 10px;
   }
   &::-webkit-scrollbar-track {
-    background-color: #fef5da;
+    background-color: $light-bg-color;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #f1e6c4;
-    border: 2px solid #fef5da;
+    border: 2px solid $light-bg-color;
     border-radius: 40px;
     &:hover {
       box-shadow: 0px 0px 5px rgba(121, 121, 121, 0.342);

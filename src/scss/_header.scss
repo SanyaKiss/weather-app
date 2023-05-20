@@ -1,9 +1,4 @@
-$green-color: #cde9d6;
-$blue-color: #d2e4fd;
-$yellow-color: #fff1cb;
-$pink-color: #f8d3cf;
-$font-color: #59564d;
-$font-weight: 600;
+@use './\ variables.scss' as *;
 
 .header {
   display: flex;
@@ -28,7 +23,7 @@ $font-weight: 600;
     border-radius: 10px;
     border: 1px solid #f1ebd5;
     font-weight: $font-weight;
-    color: #59564d;
+    color: $font-color;
     flex-grow: 1;
   }
   &__icon {

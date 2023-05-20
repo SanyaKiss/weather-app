@@ -1,4 +1,4 @@
-@use '../../../scss/styles.scss' as *;
+@use '../../../scss/\ variables.scss' as *;
 
 .hourlyContainer {
   color: $font-color;
@@ -10,11 +10,11 @@
     height: 10px;
   }
   &::-webkit-scrollbar-track {
-    background-color: #fef5da;
+    background-color: $light-bg-color;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #f1e6c4;
-    border: 2px solid #fef5da;
+    border: 2px solid $light-bg-color;
     border-radius: 40px;
   }
   table {
@@ -28,7 +28,7 @@
   td {
     text-align: center;
     &:first-child {
-      border-right: 3px solid #ffbc94;
+      border-right: 3px solid $light-orange-color;
       padding: 5px 5px;
     }
   }
@@ -40,6 +40,7 @@
     min-width: 96px;
 
     &__time {
+      background-color: $orange-color;
       font-weight: bold;
       text-align: center;
     }
