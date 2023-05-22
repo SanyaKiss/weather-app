@@ -2,7 +2,7 @@
 
 .main {
   margin: 0 auto;
-  width: 650px;
+  width: 730px;
 }
 .button {
   background-color: $green-color;
@@ -24,26 +24,3 @@
     min-width: auto;
   }
 }
-
-/* Стили для экранов шириной от 768px до 991px */
-@media (min-width: 768px) and (max-width: 991px) {
-  /* Заданные стили */
-}
-
-/* Стили для экранов шириной от 992px и больше */
-@media (min-width: 992px) {
-  /* Заданные стили */
-}
-
-// @media (max-width: 768px) {
-//   .main {
-//     width: 100%;
-//     min-width: auto;
-//   }
-// }
-
-// @media (max-width: 576px) {
-//   .main {
-//     width: 100%;
-//   }
-// }

@@ -1,43 +1,99 @@
-@use './\ variables.scss' as *;
+@use './\ variables.scss'as *;
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 15px;
   padding-bottom: 40px;
-  &__date {
-    color: $font-color;
+  color: $font-color;
+
+  @media (max-width: $md) {
+    flex-direction: column-reverse;
+    padding-bottom: 20px;
   }
+
+  &__date {
+    white-space: nowrap;
+
+    @media (max-width: $sm) {
+      font-size: 25px;
+    }
+
+    @media (max-width: 394px) {
+      font-size: 24px;
+    }
+
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    @media (max-width: $md) {
+      width: 450px;
+    }
+
+    @media (max-width: $sm){
+      width: 350px;
+    }
+
+    @media (max-width: 394px) {
+      width: 320px;
+    }
+
+  }
+
   &__buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 7px;
   }
+
+  &__button {
+    font-weight: $font-weight;
+
+    @media (max-width: $md) {
+      height: 33px;
+      width: 42px;
+    }
+  }
+
   &__input {
     background-color: #fefbf1;
     box-sizing: border-box;
     padding: 0 15px;
-    max-width: 200px;
+    min-width: 150px;
     height: 35px;
     border-radius: 10px;
     border: 1px solid #f1ebd5;
     font-weight: $font-weight;
     color: $font-color;
-    flex-grow: 1;
+
+    @media (max-width: $md) {
+      width: 100%;
+      height: 40px;
+    }
   }
+
   &__icon {
     max-width: 20px;
     height: 20px;
   }
+
   form {
-    position: relative;
+    @media (max-width: $md) {
+      width: 100%;
+    }
   }
-  .submit-button {
-    background-color: white;
-    position: absolute;
-    right: 15px;
-    top: 7px;
-    border: none;
-  }
+
+  // .submit-button {
+  //   background-color: white;
+  //   position: absolute;
+  //   right: 15px;
+  //   top: 7px;
+  //   border: none;
+  // }
 }

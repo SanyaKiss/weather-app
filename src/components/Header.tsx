@@ -37,26 +37,28 @@ export const Header: FC = () => {
       <h1 className="header__date">
         {t(currentWeekDay)}, {t(currentMonth)} {currentDate}
       </h1>
-      <form
-        onSubmit={(e) => {
-          handleSubmit(e)
-        }}
-      >
-        <input
-          className="header__input"
-          type="text"
-          placeholder="Enter city..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </form>
-      <div className="header__buttons">
-        <button className="header__button button" onClick={handleLanguageChange}>
-          {language == 'uk' ? 'yкр' : language}
-        </button>
-        <button className="header__button button" onClick={handleUnitsChange}>
-          {currentUnits}
-        </button>
+      <div className="header__content">
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e)
+          }}
+        >
+          <input
+            className="header__input"
+            type="text"
+            placeholder="Enter city..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </form>
+        <div className="header__buttons">
+          <button className="header__button button" onClick={handleLanguageChange}>
+            {language == 'uk' ? 'yкр' : language}
+          </button>
+          <button className="header__button button" onClick={handleUnitsChange}>
+            {currentUnits}
+          </button>
+        </div>
       </div>
     </header>
   )
